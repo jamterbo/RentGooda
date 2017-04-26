@@ -36,6 +36,8 @@ public class UserManageServlet extends HttpServlet{
                     if (dao.login(user)){
                         HttpSession session = req.getSession();
                         session.setAttribute("User",user);
+                        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+                        requestDispatcher.forward(req,resp);
                     }else {
                         System.out.println("False");
                     }
