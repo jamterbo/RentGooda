@@ -12,7 +12,7 @@
         <param-value>neusc</param-value>
     </context-param>
     <context-param>
-        <param-name>passwrod</param-name>
+        <param-name>password</param-name>
         <param-value>neusc1505</param-value>
     </context-param>
     <servlet>

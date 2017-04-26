@@ -30,7 +30,7 @@ public class UserManageServlet extends HttpServlet{
             e.printStackTrace();
         }
         switch (method){
-            case "login":
+            case "signin":
                 username = req.getParameter("UserName");
                 password = req.getParameter("Password");
                 user = new User(username,password);
@@ -38,6 +38,8 @@ public class UserManageServlet extends HttpServlet{
                     if (dao.login(user)){
                         HttpSession session = req.getSession();
                         session.setAttribute("User",user);
+                        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+                        requestDispatcher.forward(req,resp);
                     }else {
                         System.out.println("False");
                     }
@@ -50,12 +52,9 @@ public class UserManageServlet extends HttpServlet{
                 password = req.getParameter("password");
                 user = new User(username,password);
                 try {
-                    if (dao.signup(user)){
-                        RequestDispatcher requestDispatcher = req.getRequestDispatcher("login.jsp");
-                        requestDispatcher.forward(req,resp);
-                    }else {
-                        System.out.println("False");
-                    }
+                    dao.signup(user);
+                    RequestDispatcher view = req.getRequestDispatcher("/pages/login.jsp");
+                    view.forward(req,resp);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
