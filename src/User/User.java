@@ -1,5 +1,7 @@
+package User;
+
 /**
- * Created by LingHanchen on 2017/4/21.
+ * Created by Fantasia on 2017/4/26.
  */
 public class User {
     private String userName;

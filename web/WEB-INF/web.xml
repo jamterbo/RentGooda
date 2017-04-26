@@ -17,7 +17,7 @@
     </context-param>
     <servlet>
         <servlet-name>UserManage</servlet-name>
-        <servlet-class>UserManageServlet</servlet-class>
+        <servlet-class>User.UserManageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserManage</servlet-name>
