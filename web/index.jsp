@@ -9,7 +9,7 @@
 <%@ page import="User" %>
 <html>
   <head>
-    <title>rentgoods</title>
+    <title>首页</title>
   </head>
 
   <body>
