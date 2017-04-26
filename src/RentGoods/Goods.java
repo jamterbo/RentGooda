@@ -1,4 +1,4 @@
-package Goods;
+package RentGoods;
 
 import java.sql.Timestamp;
 import java.util.Date;
