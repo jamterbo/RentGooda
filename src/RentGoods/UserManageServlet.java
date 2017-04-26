@@ -1,4 +1,4 @@
-package User;
+package RentGoods;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

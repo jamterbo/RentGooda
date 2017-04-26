@@ -1,4 +1,4 @@
-package Goods;
+package RentGoods;
 
 /**
  * Created by Fantasia on 2017/4/26.
