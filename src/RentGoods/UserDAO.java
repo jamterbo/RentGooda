@@ -27,11 +27,11 @@ public class UserDAO {
         }
     }
 
-    public boolean signup(User user) throws SQLException {
+    public void signup(User user) throws SQLException {
         String sql = "insert into userinfo (userName,password) values (?,?)";
         state = connection.prepareStatement(sql);
         state.setString(1,user.getUserName());
         state.setString(2,user.getPassword());
-        return state.execute();
+        state.execute();
     }
 }
