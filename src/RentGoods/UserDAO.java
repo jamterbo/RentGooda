@@ -10,14 +10,27 @@ import java.sql.*;
  */
 public class UserDAO {
     private Connection connection;
-    private PreparedStatement state;
-    public UserDAO(String DB_URL,String User,String pass) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection(DB_URL,User,pass);
+    private String DB_URL;
+    private String User;
+    private String password;
+    public UserDAO(String DB_URL,String User,String pass) {
+        this.DB_URL = DB_URL;
+        this.User = User;
+        this.password = pass;
     }
-    public boolean login(User user) throws SQLException {
+
+    public void getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        connection = DriverManager.getConnection(DB_URL,User,password);
+    }
+
+    public void closeConnection() throws SQLException {
+        connection.close();
+    }
+
+    public boolean login(User user) throws SQLException, ClassNotFoundException {
         String sql = "select password from userinfo where userName=?";
-        state = connection.prepareStatement(sql);
+        PreparedStatement state = connection.prepareStatement(sql);
         state.setString(1,user.getUserName());
         ResultSet rs = state.executeQuery();
         if(rs.next()){
@@ -29,7 +42,7 @@ public class UserDAO {
 
     public void signup(User user) throws SQLException {
         String sql = "insert into userinfo (userName,password) values (?,?)";
-        state = connection.prepareStatement(sql);
+        PreparedStatement state = connection.prepareStatement(sql);
         state.setString(1,user.getUserName());
         state.setString(2,user.getPassword());
         state.execute();

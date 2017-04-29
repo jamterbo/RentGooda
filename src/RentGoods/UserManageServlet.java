@@ -22,19 +22,15 @@ public class UserManageServlet extends HttpServlet{
         String password = null;
         User user = null;
         UserDAO dao = null;
-        try {
             dao = new UserDAO(DB_URL,root,root_password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+
         switch (method){
             case "signin":
                 username = req.getParameter("UserName");
                 password = req.getParameter("Password");
                 user = new User(username,password);
                 try {
+                    dao.getConnection();
                     if (dao.login(user)){
                         HttpSession session = req.getSession();
                         session.setAttribute("User",user);
@@ -43,7 +39,10 @@ public class UserManageServlet extends HttpServlet{
                     }else {
                         System.out.println("False");
                     }
+                    dao.closeConnection();
                 } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;
@@ -52,10 +51,14 @@ public class UserManageServlet extends HttpServlet{
                 password = req.getParameter("password");
                 user = new User(username,password);
                 try {
+                    dao.getConnection();
                     dao.signup(user);
+                    dao.closeConnection();
                     RequestDispatcher view = req.getRequestDispatcher("/pages/login.jsp");
                     view.forward(req,resp);
                 } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
         }
