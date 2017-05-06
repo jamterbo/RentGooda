@@ -12,6 +12,21 @@
     <title>添加商品</title>
 </head>
 <body>
-<form action=""></form>
+<form action="/addGoods" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="addGoods" name="method">
+    标题：<input type="text" name="name" ><br>
+    类型：
+    <select name="type">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select><br>
+    成色：<input type="text" name="fineness"><br>
+    描述：<textarea name="description"></textarea><br>
+    上传图片：<input type="file" name="photo" multiple/><br>
+    联系人：<input type="text" name="owner"><br>
+    联系方式：<input type="text" name="phone"><br>
+    <input type="submit" >
+</form>
 </body>
 </html>

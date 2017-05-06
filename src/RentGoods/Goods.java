@@ -1,6 +1,8 @@
 package RentGoods;
 
+import java.sql.Array;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,12 +14,22 @@ public class Goods {
     private String type;
     private String fineness;
     private String description;
-    private String pictures;
+    private ArrayList<String> pictures;
     private String ownerId;
     private Date dateChanged;
     private int state;
     private String borrowerId;
     private Date dateReturn;
+
+    public Goods(String id, String name, String type, String fineness, String description, String ownerId, int state) {
+        Id = id;
+        this.name = name;
+        this.type = type;
+        this.fineness = fineness;
+        this.description = description;
+        this.ownerId = ownerId;
+        this.state = state;
+    }
 
     public String getId() {
         return Id;
@@ -59,11 +71,11 @@ public class Goods {
         this.description = description;
     }
 
-    public String getPictures() {
+    public ArrayList<String> getPictures() {
         return pictures;
     }
 
-    public void setPictures(String pictures) {
+    public void setPictures(ArrayList<String> pictures) {
         this.pictures = pictures;
     }
 
