@@ -17,14 +17,14 @@
     </context-param>
     <context-param>
         <param-name>Picspath</param-name>
-        <param-value>/Users/LingHanchen/</param-value>
+        <param-value>/Pictures/</param-value>
     </context-param>
     
     <servlet>
         <servlet-name>GoodsManage</servlet-name>
         <servlet-class>RentGoods.GoodsManageServlet</servlet-class>
         <multipart-config>
-            <location>/Users/LingHanchen/</location>
+            <location>/Users/LingHanchen/Desktop/ideaProjects/RentGooda/web/Pictures/</location>
         </multipart-config>
     </servlet>
     <servlet-mapping>
@@ -39,4 +39,5 @@
         <servlet-name>UserManage</servlet-name>
         <url-pattern>/usermanage</url-pattern>
     </servlet-mapping>
+
 </web-app>

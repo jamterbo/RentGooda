@@ -1,20 +1,14 @@
 package RentGoods;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 /**
  * Created by haoyun on 2017/4/26.
@@ -47,9 +41,7 @@ public class GoodsManageServlet extends HttpServlet {
                         if(!part.getName().equals("photo")){
                             continue;
                         }else {
-                            String temp = part.getHeader("content-disposition");
-                            temp = temp.substring(temp.lastIndexOf("."),temp.lastIndexOf("\""));
-                            String filename = DateUtils.getStringDate()+temp;
+                            String filename = FileUtils.getFilename(part);
                             Thread.sleep(1000);
                             part.write(filename);
                             picpaths.add(getServletContext().getInitParameter("Picspath")+filename);
@@ -69,6 +61,7 @@ public class GoodsManageServlet extends HttpServlet {
             default:
                 break;
         }
+
 
     }
 }

@@ -4,6 +4,7 @@ package RentGoods;
  * Created by Fantasia on 2017/4/26.
  */
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Created by Fantasia on 2017/4/25.
@@ -48,6 +49,30 @@ public class GoodsDAO {
         }
     }
 
+    public ArrayList<Goods> getGoods(int number) throws SQLException {
+        ArrayList<Goods> goods = new ArrayList<>();
+        String getinfo = "select name,id from goodsInfo order by dateChanged limit ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(getinfo);
+        preparedStatement.setInt(1,number);
+        ResultSet set = preparedStatement.executeQuery();
+        while (set.next()){
+            Goods item = new Goods();
+            item.setName(set.getString("name"));
+            item.setPictures(getPictures(set.getString("id")));
+            goods.add(item);
+        }
+        return goods;
+    }
 
-
+    public ArrayList<String> getPictures(String id) throws SQLException {
+        ArrayList<String> pictures = new ArrayList<>();
+        String getPics = "select picpath from pictures where id=? and main='0' ";
+        PreparedStatement pst = connection.prepareStatement(getPics);
+        pst.setString(1,id);
+        ResultSet set = pst.executeQuery();
+        while (set.next()){
+            pictures.add(set.getString("picpath"));
+        }
+        return pictures;
+    }
 }

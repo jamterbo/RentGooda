@@ -21,6 +21,8 @@ public class Goods {
     private String borrowerId;
     private Date dateReturn;
 
+    public Goods(){}
+
     public Goods(String id, String name, String type, String fineness, String description, String ownerId, int state) {
         Id = id;
         this.name = name;
