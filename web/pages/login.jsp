@@ -12,8 +12,7 @@
     <title>登录rentgoods</title>
 </head>
 <body>
-<form action="/usermanage" method="post">
-    <input type="hidden" name="method" value="signin">
+<form action="/login" method="post">
     UserName:<input name="UserName" type="text">
     Password:<input type="password" name="Password">
     <input type="submit" value="submit">

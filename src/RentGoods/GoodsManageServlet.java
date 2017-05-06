@@ -1,5 +1,6 @@
 package RentGoods;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,16 +18,21 @@ public class GoodsManageServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        String method = req.getParameter("method");
+        String method = req.getRequestURI();
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String password = getServletContext().getInitParameter("password");
         GoodsDAO goodsDAO = new GoodsDAO(DB_URL,root,password);
+        try {
+            goodsDAO.getConnection();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         switch (method){
-            case "addGoods":
+            case "/addGoods":
                 try {
-                    GoodsDAO dao = new GoodsDAO(DB_URL,root,password);
-                    dao.getConnection();
                     String id = DateUtils.getStringDate();
                     String name = req.getParameter("name");
                     String type = req.getParameter("type");
@@ -48,10 +54,7 @@ public class GoodsManageServlet extends HttpServlet {
                         }
                     }
                     item.setPictures(picpaths);
-                    dao.addGoods(item);
-                    dao.closeConnection();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                    goodsDAO.addGoods(item);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -61,7 +64,39 @@ public class GoodsManageServlet extends HttpServlet {
             default:
                 break;
         }
+        try {
+            goodsDAO.closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        String method = req.getRequestURI();
+        String DB_URL = getServletContext().getInitParameter("DB_URL");
+        String root = getServletContext().getInitParameter("username");
+        String password = getServletContext().getInitParameter("password");
+        GoodsDAO goodsDAO = new GoodsDAO(DB_URL,root,password);
+        try {
+            goodsDAO.getConnection();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        switch (method){
+            case "/home":
+                try {
+                    ArrayList<Goods> goods = goodsDAO.getGoods(20);
+                    req.setAttribute("goods",goods);
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/index.jsp");
+                    requestDispatcher.forward(req,resp);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
     }
 }

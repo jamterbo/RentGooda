@@ -12,8 +12,7 @@
     <title>注册rentgoods</title>
 </head>
 <body>
-<form action="/usermanage" method="post" >
-    <input type="hidden" value="signup" name="method">
+<form action="/register" method="post" >
     Username:<input name="username" type="text">
     Password:<input type="password" name="password">
     <input type="submit" value="submit">

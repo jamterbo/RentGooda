@@ -1,6 +1,7 @@
 package RentGoods;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,21 +23,6 @@ public class ViewServlet extends HttpServlet{
         String get = req.getRequestURI();
         RequestDispatcher requestDispatcher = null;
         switch (get){
-            case "/":
-                GoodsDAO dao = new GoodsDAO(DB_URL,root,password);
-                try {
-                    dao.getConnection();
-                    ArrayList<Goods> goods = dao.getGoods(20);
-                    dao.closeConnection();
-                    req.setAttribute("goods",goods);
-                    requestDispatcher = req.getRequestDispatcher("/index.jsp");
-                    requestDispatcher.forward(req,resp);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                break;
             case "/signin":
                 requestDispatcher = req.getRequestDispatcher("/pages/login.jsp");
                 requestDispatcher.forward(req,resp);
@@ -45,14 +31,16 @@ public class ViewServlet extends HttpServlet{
                 requestDispatcher = req.getRequestDispatcher("/pages/signup.jsp");
                 requestDispatcher.forward(req,resp);
                 break;
+            case "/publish":
+                requestDispatcher = req.getRequestDispatcher("/pages/addGoods.jsp");
+                requestDispatcher.forward(req,resp);
             default:
-                super.doGet(req,resp);
                 break;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        doGet(req,resp);
     }
 }

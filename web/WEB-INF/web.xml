@@ -30,6 +30,7 @@
     <servlet-mapping>
         <servlet-name>GoodsManage</servlet-name>
         <url-pattern>/addGoods</url-pattern>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>UserManage</servlet-name>
@@ -37,7 +38,21 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserManage</servlet-name>
-        <url-pattern>/usermanage</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>viewController</servlet-name>
+        <servlet-class>RentGoods.ViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>viewController</servlet-name>
+        <url-pattern>/signin</url-pattern>
+        <url-pattern>/signup</url-pattern>
+        <url-pattern>/publish</url-pattern>
     </servlet-mapping>
 
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

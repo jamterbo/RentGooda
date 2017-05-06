@@ -17,50 +17,54 @@ public class UserManageServlet extends HttpServlet{
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String root_password = getServletContext().getInitParameter("password");
-        String method = req.getParameter("method");
+        String method = req.getRequestURI();
         String username = null;
         String password = null;
         User user = null;
-        UserDAO dao = null;
-            dao = new UserDAO(DB_URL,root,root_password);
-
+        UserDAO dao = new UserDAO(DB_URL,root,root_password);
+        try {
+            dao.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         switch (method){
-            case "signin":
+            case "/login":
                 username = req.getParameter("UserName");
                 password = req.getParameter("Password");
                 user = new User(username,password);
                 try {
-                    dao.getConnection();
                     if (dao.login(user)){
                         HttpSession session = req.getSession();
                         session.setAttribute("User",user);
-                        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
-                        requestDispatcher.forward(req,resp);
+                        resp.sendRedirect("/");
                     }else {
                         System.out.println("False");
                     }
-                    dao.closeConnection();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;
-            case "signup":
+            case "/register":
                 username = req.getParameter("username");
                 password = req.getParameter("password");
                 user = new User(username,password);
                 try {
-                    dao.getConnection();
                     dao.signup(user);
-                    dao.closeConnection();
-                    RequestDispatcher view = req.getRequestDispatcher("/pages/login.jsp");
-                    view.forward(req,resp);
+                    resp.sendRedirect("/signin");
                 } catch (SQLException e) {
                     e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
                 }
+            default:
+
+        }
+        try {
+            dao.closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

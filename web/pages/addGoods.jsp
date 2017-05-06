@@ -13,7 +13,6 @@
 </head>
 <body>
 <form action="/addGoods" method="post" enctype="multipart/form-data">
-    <input type="hidden" value="addGoods" name="method">
     标题：<input type="text" name="name" ><br>
     类型：
     <select name="type">
