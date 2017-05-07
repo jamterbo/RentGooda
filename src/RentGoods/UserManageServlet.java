@@ -80,6 +80,7 @@ public class UserManageServlet extends HttpServlet{
         User user = (User)session.getAttribute("User");
         if (user == null){
             resp.sendRedirect("/signin");
+            return;
         }
         switch (method){
             case "/UserInfo":

@@ -12,7 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-<% User user = (User)session.getAttribute("User");%>
+<%
+    User user = (User)session.getAttribute("User");
+%>
 UserName:<%=user.getUserName()%>
 <img src="..<%=user.getHead()%>" width="100px">
 Student ID:<%=user.getStudentID()%>
