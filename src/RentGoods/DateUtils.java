@@ -11,4 +11,16 @@ public class DateUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         return sdf.format(new Date());
     }
+    public static String getYear(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        return sdf.format(new Date());
+    }
+    public static String getMonth(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM");
+        return sdf.format(new Date());
+    }
+    public static String getDay(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd");
+        return sdf.format(new Date());
+    }
 }

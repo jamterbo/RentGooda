@@ -19,6 +19,10 @@
         <param-name>Picspath</param-name>
         <param-value>/Pictures/</param-value>
     </context-param>
+    <context-param>
+        <param-name>rootpath</param-name>
+        <param-value>/Users/LingHanchen/Desktop/ideaProjects/RentGooda/web</param-value>
+    </context-param>
     
     <servlet>
         <servlet-name>GoodsManage</servlet-name>
