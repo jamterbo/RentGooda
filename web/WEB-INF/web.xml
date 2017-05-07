@@ -44,6 +44,7 @@
         <servlet-name>UserManage</servlet-name>
         <url-pattern>/login</url-pattern>
         <url-pattern>/register</url-pattern>
+        <url-pattern>/UserInfo</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>viewController</servlet-name>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="RentGoods.User" %><%--
     用户主页
   Created by IntelliJ IDEA.
   User: haoyun
@@ -12,6 +12,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<% User user = (User)session.getAttribute("User");%>
+UserName:<%=user.getUserName()%>
+<img src="..<%=user.getHead()%>" width="100px">
+Student ID:<%=user.getStudentID()%>
+School: <%=user.getSchool()%>
+Telephone:<%=user.getTelephone()%>
+Email:<%=user.getEmail()%>
+Sex:<%=user.getSex()!=0?"男":"女"%>
 </body>
 </html>

@@ -47,4 +47,18 @@ public class UserDAO {
         state.setString(2,user.getPassword());
         state.execute();
     }
+
+    public void search(User user) throws SQLException {
+        String sql = "select studentId,school,telephone,email,head,sex from userinfo where userName=?";
+        PreparedStatement pstat = connection.prepareStatement(sql);
+        pstat.setString(1,user.getUserName());
+        ResultSet set = pstat.executeQuery();
+        set.next();
+        user.setEmail(set.getString("email"));
+        user.setHead(set.getString("head"));
+        user.setStudentID(set.getString("studentId"));
+        user.setSchool(set.getString("school"));
+        user.setTelephone(set.getString("telephone"));
+        user.setSex(set.getInt("sex"));
+    }
 }

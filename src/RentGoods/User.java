@@ -29,9 +29,11 @@ public class User {
     public String getUserName(){
         return userName;
     }
+
     public String getPassword(){
         return password;
     }
+
     public void setPassword(String password){
         this.password = password;
     }

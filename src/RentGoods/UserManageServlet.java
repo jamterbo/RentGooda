@@ -58,6 +58,7 @@ public class UserManageServlet extends HttpServlet{
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            case "/changeUserInfo":
             default:
 
         }
@@ -65,6 +66,36 @@ public class UserManageServlet extends HttpServlet{
             dao.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String DB_URL = getServletContext().getInitParameter("DB_URL");
+        String root = getServletContext().getInitParameter("username");
+        String root_password = getServletContext().getInitParameter("password");
+        UserDAO dao = new UserDAO(DB_URL,root,root_password);
+        String method = req.getRequestURI();
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("User");
+        if (user == null){
+            resp.sendRedirect("/signin");
+        }
+        switch (method){
+            case "/UserInfo":
+                try {
+                    dao.getConnection();
+                    dao.search(user);
+                    dao.closeConnection();
+                    session.setAttribute("User",user);
+                    req.getRequestDispatcher("/pages/userhome.jsp").forward(req,resp);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+
         }
     }
 }
