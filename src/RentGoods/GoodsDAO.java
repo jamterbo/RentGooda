@@ -75,4 +75,23 @@ public class GoodsDAO {
         }
         return pictures;
     }
+
+
+    public Goods getGood(String id) throws SQLException {
+    String getInfo="select * from goodsInfo where id=?";
+    PreparedStatement pstat = connection.prepareStatement(getInfo);
+    pstat.setString(1,id);
+    ResultSet set = pstat.executeQuery();
+    set.next();
+    Goods item=new Goods(set.getString("id"),
+            set.getString("name"),
+            set.getString("type"),
+            set.getString("fineness"),
+            set.getString("description"),
+            set.getString("owerId"),
+            set.getInt("state")
+            );
+    item.setPictures(getPictures(item.getId()));
+    return item;
+    }
 }

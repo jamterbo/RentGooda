@@ -4,6 +4,7 @@ import java.sql.Array;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by Fantasia on 2017/4/25.
@@ -20,7 +21,6 @@ public class Goods {
     private int state;
     private String borrowerId;
     private Date dateReturn;
-
     public Goods(){}
 
     public Goods(String id, String name, String type, String fineness, String description, String ownerId, int state) {

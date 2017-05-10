@@ -100,6 +100,16 @@ public class GoodsManageServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 break;
+            case "/showItem?id=*":
+                String id=req.getParameter("id");
+                try {
+                    Goods good= goodsDAO.getGood(id);
+                    req.setAttribute("item",good);
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/item.jsp");
+                    requestDispatcher.forward(req,resp);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
 }

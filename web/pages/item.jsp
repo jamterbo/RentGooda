@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="RentGoods.Goods" %>
+
 <%--
   物品详情页
   Created by IntelliJ IDEA.
@@ -8,10 +11,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
+<% Goods item = (Goods) request.getAttribute("item");%>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>物品详情</title>
+    <title><%=item.getName()%>
+    </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -48,7 +54,8 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
             <li><a href="#"> Sofa</a></li>
-            <li class="active">Laoreet Congue</li>
+            <li class="active"><%=item.getType()%>
+            </li>
         </ol>
     </div>
 </div>
@@ -60,70 +67,46 @@
             <div class="col-xs-12 col-sm-6 col-md-5">
                 <div class="product-zoom">
                     <!-- Tab panes -->
+                    <%--这里是上面的大图 class = active 是时候，表示为被显示--%>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="home">
-                            <div class="pro-large-img">
-                                <img src="img/product/1.jpg" alt=""/>
-                                <a class="popup-link" href="img/product/1.jpg">View larger <i class="fa fa-search-plus"
-                                                                                              aria-hidden="true"></i></a>
+                        <%--这里需要有一个迭代遍历，将剩下的都遍历--%>
+                        <c:forEach items="${item.getPictures()}" var="item" varStatus="status">
+                            <div class="tab-pane <c:if test="${status.count==0}" >
+                            active
+</c:if>" id="${status}">
+                                <div class="pro-large-img">
+                                    <img src="img/product/2.jpg" alt=""/>
+                                    <a class="popup-link" href="${item}">查看大图<i class="fa fa-search-plus"
+                                                                                aria-hidden="true"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="tab-pane" id="profile">
-                            <div class="pro-large-img">
-                                <img src="img/product/2.jpg" alt=""/>
-                                <a class="popup-link" href="img/product/2.jpg">View larger <i class="fa fa-search-plus"
-                                                                                              aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="messages">
-                            <div class="pro-large-img">
-                                <img src="img/product/3.jpg" alt=""/>
-                                <a class="popup-link" href="img/product/3.jpg">View larger <i class="fa fa-search-plus"
-                                                                                              aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings">
-                            <div class="pro-large-img">
-                                <img src="img/product/4.jpg" alt=""/>
-                                <a class="popup-link" href="img/product/4.jpg">View larger <i class="fa fa-search-plus"
-                                                                                              aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings2">
-                            <div class="pro-large-img">
-                                <img src="img/product/5.jpg" alt=""/>
-                                <a class="popup-link" href="img/product/5.jpg">View larger <i class="fa fa-search-plus"
-                                                                                              aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings3">
-                            <div class="pro-large-img">
-                                <img src="img/product/6.jpg" alt=""/>
-                                <a class="popup-link" href="img/product/6.jpg">View larger <i class="fa fa-search-plus"
-                                                                                              aria-hidden="true"></i></a>
-                            </div>
-                        </div>
+                        </c:forEach>
+
                     </div>
                     <!-- Nav tabs -->
+                    <%--这下面是小图，class=active时被显示，一次只显示4个--%>
                     <ul class="details-tab">
-                        <li class="active"><a href="#home" data-toggle="tab"><img src="img/product/1.jpg" alt=""/></a>
-                        </li>
-                        <li><a href="#profile" data-toggle="tab"><img src="img/product/2.jpg" alt=""/></a></li>
-                        <li><a href="#messages" data-toggle="tab"><img src="img/product/3.jpg" alt=""/></a></li>
-                        <li><a href="#settings" data-toggle="tab"><img src="img/product/4.jpg" alt=""/></a></li>
-                        <li><a href="#settings2" data-toggle="tab"><img src="img/product/5.jpg" alt=""/></a></li>
-                        <li><a href="#settings3" data-toggle="tab"><img src="img/product/6.jpg" alt=""/></a></li>
+
+                        <c:forEach items="${item.getPictures()}" var="item" varStatus="status">
+                        <li><a href="#${status.count}" data-toggle="tab"
+                                <c:if test="${status.count==0}">
+                                    class="active"
+                                </c:if>
+                        ><img src="${item}" alt=""/></a></li>
+                    </ul>
+                    </c:forEach>
                     </ul>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7">
                 <div class="product-details">
-                    <h2 class="pro-d-title">自行车</h2>
+                    <h2 class="pro-d-title"><%=item.getName()%>
+                    </h2>
                     <div class="pro-ref container">
                         <div class="col-2">
                             <p>
                                 <label>成色: </label>
-                                <span>全新</span>
+                                <span><%=item.getFineness()%></span>
                             </p>
                             <p>
                                 <label>价值: </label>
@@ -141,7 +124,7 @@
                             </p>
                             <p>
                                 <label>出租方: </label>
-                                <span>王思聪</span>
+                                <span><%=item.getOwnerId()%></span>
                             </p>
                             <p>
                                 <label>地址: </label>
@@ -155,8 +138,8 @@
 
                     </div>
                     <div class="short-desc">
-                        <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable
-                            fit. Accessorize with a straw hat and you're ready for summer!</p>
+                        <p><%=item.getDescription()%>
+                        </p>
                     </div>
                     <div class="box-quantity">
                         <form action="#">
@@ -232,10 +215,10 @@
 <!-- pro-info-area end -->
 
 
-
-
 <!-- footer start -->
-<div><jsp:include page="footer.jsp"/></div>
+<div>
+    <jsp:include page="footer.jsp"/>
+</div>
 <!-- footer end -->
 <script src="./js/login.js"></script>
 
