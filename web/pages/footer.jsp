@@ -6,6 +6,58 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- service-area start -->
+<div class="service-area pt-70 pb-40 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30">
+                    <div class="service-icon">
+                        <i class="pe-7s-world"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>FREE SHIPPING</h3>
+                        <p>Free shipping on all UK orders</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30">
+                    <div class="service-icon">
+                        <i class="pe-7s-refresh"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>闲置物品共享</h3>
+                        <p>让闲置物品重新焕发生机</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30 sm-mrg">
+                    <div class="service-icon">
+                        <i class="pe-7s-headphones"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>以物会友</h3>
+                        <p>通过物品的租借，助你结交更多朋友！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30 xs-mrg sm-mrg">
+                    <div class="service-icon">
+                        <i class="pe-7s-gift"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>BLACK FRIDAY</h3>
+                        <p>Shocking discount on every friday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- service-area end -->
 <!-- footer start -->
 <footer class="black-bg">
     <div class="footer-top-area ptb-60">

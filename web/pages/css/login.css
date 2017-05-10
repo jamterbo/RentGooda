@@ -257,16 +257,7 @@ a{
     border:1px solid #ccc;
     cursor: pointer;
 }
-.register-wrap .register .register-con ul li div.qq{
 
-    background:url(../images/sprite_200x300.png) no-repeat 0 -120px ;
-}
-.register-wrap .register .register-con ul li div.weixin{
-    background:url(../images/sprite_200x300.png) no-repeat 0 -200px ;
-}
-.register-wrap .register .register-con ul li div.weibo{
-    background:url(../images/sprite_200x300.png) no-repeat 0 -160px;
-}
 
 /*=========æ‰‹æœºå·ç æ— å¯†ç ç™»å½•==========*/
 .register-wrap .register .login-con{
@@ -306,7 +297,7 @@ a{
     height:20px;
     margin:6px 10px;
     border:none;
-    background:url(../images/bz_16x16.png) no-repeat 0 0;
+
 }
 .login-con ul #inner-num>span,#inner-virity>span{
     color:#ff1877;
@@ -331,7 +322,7 @@ a{
     -ms-appearance: none;
     appearance: none;
 
-    background:url('../images/arrow_29x30.png') no-repeat scroll right center #fff;
+    background: no-repeat scroll right center #fff;
     vertical-align: top;/*å¤„ç†liä¸­çš„å…ƒç´ é”™ä½é—®é¢˜*/
     width:104px\0;
     background:none\0;
@@ -428,15 +419,7 @@ a{
     border:1px solid #ccc;
     cursor: pointer;
 }
-.register-wrap .register .login-con ul li div.qq{
-    background:url(../images/sprite_200x300.png) no-repeat 0 -120px ;
-}
-.register-wrap .register .login-con ul li div.weixin{
-    background:url(../images/sprite_200x300.png) no-repeat 0 -200px ;
-}
-.register-wrap .register .login-con ul li div.weibo{
-    background:url(../images/sprite_200x300.png) no-repeat 0 -160px;
-}
+
 /*=========æ‰«ç ç™»å½•==============*/
 .saoma{
     /*  height: 380px; */
@@ -455,7 +438,6 @@ a{
     left:298px;
     top:10px;
     cursor: pointer;
-    background:url(../images/tubiao_52x53.png) no-repeat;
     background-position:0 0 ;
 }
 .saoma .saoyisao{
@@ -463,7 +445,6 @@ a{
     height: 80px;
     top: -20px;
     width: 200px;
-    background: url(../images/saoyisao_190x37.png) no-repeat;
 }
 .saoma .qr-code{
     width:204px;
@@ -497,7 +478,6 @@ a{
 /*========footeréƒ¨åˆ†æ ·å¼å¼€å§‹==========*/
 .footer{
     width:100%;
-    background:url(../images/fbg_16x16.png) repeat 0 0;
 }
 
 .footer-wrap{
