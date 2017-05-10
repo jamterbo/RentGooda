@@ -116,7 +116,7 @@
 
     </form>
 </div>
-
+<div><jsp:include page="footer.jsp"/></div>
 </body>
 <!-- jquery latest version -->
 <script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
