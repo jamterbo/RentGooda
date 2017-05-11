@@ -27,16 +27,21 @@
                     chat.socket.send('History');
                 }
                 chat.socket.onmessage = function (message) {
+                    if(Array.isArray(message)){
+                        for (var i=0;i<message.length;i++){
+                            var withWho = $('#'+message[i].fromWho);
+                            if(withWho.length<=0){
+                                $('.sidebar-content').append("<div class='contact'>\n" +
+                                    "<img src=\""+message[i]['head']+"\" class='contact__photo' />\n "+
+                                    "<span class='contact__name'>"+message[i]['nickname']+"</span>\n"+
+                                    "<span class='contact__photo'></span> \n"+"</div>");
+                            }
+                            withWho = "<div class='chat__messages'><div class='chat__msgRow'><div class='chat__message notMine'>"
+                            +message[i].mainInfo;
 
-                    if(message[0]['method'] == 'history'){
-                        for (var i=1;i<message.length;i++){
-                            record[message[i]['withWho']] = "<div class='contact'>\n" +
-                                "<img src=\""+message[i]['head']+"\" class='contact__photo' />\n "+
-                                "<span class='contact__name'>"+message[i]['nickname']+"</span>\n"+
-                                "<span class='contact__photo'></span> \n"+"</div>";
                         }
-                    }else if(message['method'] == 'sender'){
-
+                    }else {
+                        record[message.fromWho] =
                     }
                 }
                 chat.socket.onclose = function () {
@@ -56,7 +61,7 @@
 </script>
 <div class="chatPart">
 <div class="sidebar-content">
-    <div class="contact">
+    <div class="contact" id="test">
         <img src="img/1.png" alt="" class="contact__photo" />
         <span class="contact__name">Ethan Hawke</span>
         <span class="contact__status online"></span>

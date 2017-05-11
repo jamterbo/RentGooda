@@ -38,9 +38,6 @@ public class ChatServer {
         if(message.equals("History")){
             try {
                 JSONArray json = getRecord();
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("method","history");
-                json.add(0,jsonObject);
                 session.getBasicRemote().sendObject(json);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -69,7 +66,6 @@ public class ChatServer {
             String mainInfo = (String)json.get("mainInfo");
             String fromWho = (String)json.get("fromWho");
             json = JsonUtils.getJson(fromWho,mainInfo,toWho);
-            json.put("method","sender");
             try {
                 client.session.getBasicRemote().sendObject(json);
             } catch (IOException e) {
