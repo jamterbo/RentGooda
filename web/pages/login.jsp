@@ -11,34 +11,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="../pages/favicon.ico">
 
     <title>登录</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
     ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../pages/img/favicon.png">
 
     <!-- All css files are included here. -->
     <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="../pages/css/core.css">
     <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">
     <!-- Theme main style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../pages/css/style.css">
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../pages/css/responsive.css">
     <!-- User style -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="../pages/css/custom.css">
 
     <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="../pages/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/login.css" rel="stylesheet">
+    <link href="../pages/css/login.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-md-2 col-sm-3 col-xs-12">
                     <div class="logo">
-                        <a href="index.html"><img src="img/logo/logo.jpg" alt=""/></a>
+                        <a href="index.html"><img src="../pages/img/logo/logo.jpg" alt=""/></a>
                     </div>
                 </div>
                 <div class="col-md-10 col-sm-9 col-xs-12 text-right xs-center">
@@ -106,7 +106,7 @@
 
     <div class="register-wrap" id="register-wrap">
         <div class="pic" id="pic">
-            <img src="./img/blog/1.jpg" alt="该链接已失效"/>
+            <img src="../pages/img/blog/1.jpg" alt="该链接已失效"/>
         </div>
         <div class="register"id="register">
             <div class="register-top" id="reg-top">
@@ -190,8 +190,6 @@
                         <li>
                             <button class="submit"type="submit"id="login-btn1"style="border-radius:5px;">注册</button>
                         </li>
-
-
                     </ul>
                 </form>
             </div>
@@ -213,20 +211,20 @@
 <!-- footer end -->
 
 
-<script src="./js/login.js"></script>
+<script src="../pages/js/login.js"></script>
 <!-- jquery latest version -->
-<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
 <!-- Bootstrap framework js -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../pages/js/bootstrap.min.js"></script>
 <!-- owl.carousel js -->
-<script src="js/owl.carousel.min.js"></script>
+<script src="../pages/js/owl.carousel.min.js"></script>
 <!-- owl.carousel js -->
-<script src="js/jquery-ui.min.js"></script>
+<script src="../pages/js/jquery-ui.min.js"></script>
 <!-- jquery.nivo.slider js -->
-<script src="js/jquery.nivo.slider.pack.js"></script>
+<script src="../pages/js/jquery.nivo.slider.pack.js"></script>
 <!-- All js plugins included in this file. -->
-<script src="js/plugins.js"></script>
+<script src="../pages/js/plugins.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
-<script src="js/main.js"></script>
+<script src="../pages/js/main.js"></script>
 </body>
 </html>

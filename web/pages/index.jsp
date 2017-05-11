@@ -18,24 +18,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
     ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../pages/img/favicon.png">
 
     <!-- All css files are included here. -->
     <!-- Bootstrap framework main css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../pages/css/bootstrap.min.css">
     <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="../pages/css/core.css">
     <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">
     <!-- Theme main style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../pages/style.css">
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../pages/css/responsive.css">
     <!-- User style -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="../pages/css/custom.css">
 
     <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
 <div class="slider-container">
     <!-- Slider Image -->
     <div id="mainSlider" class="nivoSlider slider-image">
-        <img src="img/slider/1.jpg" alt="" title="#htmlcaption1"></div>
+        <img src="../pages/img/slider/1.jpg" alt="" title="#htmlcaption1"></div>
     <!-- Slider Caption 1 -->
     <div id="htmlcaption1" class="nivo-html-caption slider-caption-1">
         <div class="container">
@@ -132,7 +132,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/12.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/12.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/11.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/11.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -196,7 +196,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/3.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/3.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -227,7 +227,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/1.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/1.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -260,7 +260,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/4.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/4.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -291,7 +291,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/11.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/11.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -324,7 +324,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -355,7 +355,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/10.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/10.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -388,7 +388,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -419,7 +419,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -452,7 +452,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/6.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/6.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -483,7 +483,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -516,7 +516,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/7.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/7.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -547,7 +547,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -584,7 +584,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/12.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/12.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -615,7 +615,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/11.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/11.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -648,7 +648,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/10.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/10.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -679,7 +679,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/1.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/1.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -712,7 +712,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -743,7 +743,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -776,7 +776,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -807,7 +807,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/7.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/7.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -840,7 +840,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/6.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/6.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -871,7 +871,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -904,7 +904,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/2.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/2.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -935,7 +935,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/2.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/2.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -968,7 +968,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/1.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/1.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -999,7 +999,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1036,7 +1036,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/4.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/4.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1067,7 +1067,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/11.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/11.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1100,7 +1100,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/12.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/12.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1131,7 +1131,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/2.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/2.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1164,7 +1164,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/3.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/3.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1195,7 +1195,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/1.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/1.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1228,7 +1228,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1259,7 +1259,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/10.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/10.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1292,7 +1292,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1323,7 +1323,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1356,7 +1356,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/6.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/6.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1387,7 +1387,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1420,7 +1420,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/7.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/7.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1451,7 +1451,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1488,7 +1488,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/6.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/6.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1519,7 +1519,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1552,7 +1552,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/2.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/2.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1583,7 +1583,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/2.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/2.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1616,7 +1616,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1647,7 +1647,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/11.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/11.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1680,7 +1680,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/12.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/12.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1711,7 +1711,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/10.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/10.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1744,7 +1744,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/5.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/5.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1775,7 +1775,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1808,7 +1808,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/6.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/6.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1839,7 +1839,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1872,7 +1872,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/7.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/7.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1903,7 +1903,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1940,7 +1940,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/2.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/2.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -1971,7 +1971,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/10.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/10.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2004,7 +2004,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/3.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/3.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2035,7 +2035,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2068,7 +2068,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/4.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/4.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2099,7 +2099,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/10.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/10.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2132,7 +2132,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/12.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/12.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2163,7 +2163,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2196,7 +2196,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/12.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/12.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2227,7 +2227,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/9.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/9.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2260,7 +2260,7 @@
                                     <div class="col-md-12">
                                         <div class="product-wrapper mb-40">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/7.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/7.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2291,7 +2291,7 @@
                                         </div>
                                         <div class="product-wrapper mb-40 mrg-nn-xs">
                                             <div class="product-img">
-                                                <a href="#"><img src="img/product/8.jpg" alt=""/></a>
+                                                <a href="#"><img src="../pages/img/product/8.jpg" alt=""/></a>
                                                 <span class="new-label">New</span>
                                                 <div class="product-action">
                                                     <a href="#"><i class="pe-7s-cart"></i></a>
@@ -2343,37 +2343,37 @@
                 <div class="brand-active">
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/1.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/1.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/2.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/2.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/3.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/3.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/4.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/4.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/5.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/5.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/1.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/1.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="single-brand">
-                            <a href="#"><img src="img/brand/2.jpg" alt=""/></a>
+                            <a href="#"><img src="../pages/img/brand/2.jpg" alt=""/></a>
                         </div>
                     </div>
                 </div>
@@ -2447,7 +2447,7 @@
             </div>
             <div class="modal-body">
                 <div class="modal-img">
-                    <a href="shop.html"><img src="img/product/1.jpg" alt=""/></a>
+                    <a href="shop.html"><img src="../pages/img/product/1.jpg" alt=""/></a>
                 </div>
                 <div class="modal-pro-content">
                     <h3><a href="#">Phasellus Vel Hendrerit</a></h3>
@@ -2486,5 +2486,20 @@
     </div>
 </div>
 <!-- Modal end -->
+
+<!-- jquery latest version -->
+<script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap framework js -->
+<script src="../pages/js/bootstrap.min.js"></script>
+<!-- ajax-mail js -->
+<script src="../pages/js/ajax-mail.js"></script>
+<!-- owl.carousel js -->
+<script src="../pages/js/owl.carousel.min.js"></script>
+<!-- jquery.nivo.slider js -->
+<script src="../pages/js/jquery.nivo.slider.pack.js"></script>
+<!-- All js plugins included in this file. -->
+<script src="../pages/js/plugins.js"></script>
+<!-- Main js file that contents all jQuery plugins activation. -->
+<script src="../pages/js/main.js"></script>
 </body>
 </html>
