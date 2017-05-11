@@ -16,12 +16,16 @@ import java.util.ArrayList;
 public class ViewServlet extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //设置编码格式
         req.setCharacterEncoding("UTF-8");
+        //获取数据库连接、帐号、密码
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String password = getServletContext().getInitParameter("password");
+        //获取请求路径
         String get = req.getRequestURI();
         RequestDispatcher requestDispatcher = null;
+        //转发请求到对应路径
         switch (get){
             case "/signin":
                 requestDispatcher = req.getRequestDispatcher("/pages/login.jsp");

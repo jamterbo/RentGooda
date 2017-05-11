@@ -18,11 +18,13 @@ import java.util.Collection;
 public class GoodsManageServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");  //设置编码格式
         String method = req.getRequestURI();    //获取要执行的操作
+        //获取数据库的地址，帐号，密码
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String password = getServletContext().getInitParameter("password");
+        //声明数据库对象
         GoodsDAO goodsDAO = new GoodsDAO(DB_URL,root,password);
         try {
             goodsDAO.getConnection();   //连接数据库
@@ -35,7 +37,8 @@ public class GoodsManageServlet extends HttpServlet {
             case "/addGoods":
                 try {
                     IDUtils idUtils = new IDUtils(1000);
-                    String id = String.valueOf(idUtils.generate());
+                    String id = String.valueOf(idUtils.generate());  //唯一ID生存
+                    //获取post内容
                     String name = req.getParameter("name");
                     String type = req.getParameter("type");
                     String fineness = req.getParameter("fineness");
@@ -43,6 +46,7 @@ public class GoodsManageServlet extends HttpServlet {
 //                    String owner = ((User)req.getSession().getAttribute("User")).getUserName();
                     String phone = req.getParameter("phone");
                     Goods item = new Goods(id,name,type,fineness,description,"root",0);
+                    //接受图片
                     Collection<Part> parts = req.getParts();
                     ArrayList<String> picpaths = new ArrayList<String>();
                     //接收文件
@@ -68,7 +72,7 @@ public class GoodsManageServlet extends HttpServlet {
                 break;
         }
         try {
-            goodsDAO.closeConnection();
+            goodsDAO.closeConnection(); //关闭数据库连接
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,30 +80,34 @@ public class GoodsManageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        String method = req.getRequestURI();
+        req.setCharacterEncoding("UTF-8");  //设置编码格式
+        String method = req.getRequestURI();    //获取get路径
+        //获取数据库的连接、帐号、密码
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String password = getServletContext().getInitParameter("password");
         GoodsDAO goodsDAO = new GoodsDAO(DB_URL,root,password);
         try {
-            goodsDAO.getConnection();
+            goodsDAO.getConnection();   //建立数据库连接
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         switch (method){
+            //请求主页
             case "/home":
                 try {
                     ArrayList<Goods> goods = goodsDAO.getGoods(20);
-                    req.setAttribute("goods",goods);
+                    req.setAttribute("goods",goods);    //添加HttpServletRequest属性
+                    //转发请求到jsp文件
                     RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/index.jsp");
                     requestDispatcher.forward(req,resp);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
+                //获取特点ID的商品
             case "/showItem?id=*":
                 String id=req.getParameter("id");
                 try {

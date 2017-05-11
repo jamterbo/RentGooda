@@ -57,6 +57,20 @@
         <url-pattern>/publish</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>RequestFilter</filter-name>
+        <filter-class>RentGoods.RequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RequestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>RequestFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+
     <welcome-file-list>
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
