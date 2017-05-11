@@ -98,15 +98,24 @@ public class GoodsDAO {
     pstat.setString(1,id);
     ResultSet set = pstat.executeQuery();
     set.next();
+    ArrayList<String> pic=getPictures(id);
     Goods item=new Goods(set.getString("id"),
             set.getString("name"),
             set.getString("type"),
             set.getString("fineness"),
             set.getString("description"),
+            pic,
             set.getString("owerId"),
-            set.getInt("state")
+            set.getDate("dateChanged"),
+            set.getInt("state"),
+            set.getString("borrowerId"),
+            set.getDate("dateReturn"),
+            set.getString("address"),
+            set.getDouble("deposit"),
+            set.getDouble("price"),
+            set.getDouble("originprice")
             );
-    item.setPictures(getPictures(item.getId()));    //设置商品图片路径
+
     return item;
     }
 }
