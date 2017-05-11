@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 /**
  * Created by Fantasia on 2017/4/25.
+ * 目前和数据库中的内容相同5月11日21:24
  */
 public class Goods {
     private String Id;
@@ -21,6 +22,46 @@ public class Goods {
     private int state;
     private String borrowerId;
     private Date dateReturn;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public double getDeposit() {
+        return deposit;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getOriginprice() {
+        return originprice;
+    }
+
+    public void setAddress(String address) {
+
+        this.address = address;
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setOriginprice(double originprice) {
+        this.originprice = originprice;
+    }
+
+    private String address;
+    private double deposit;
+    private double price;
+    private double originprice;
+
+
     public Goods(){}
 
     public Goods(String id, String name, String type, String fineness, String description, String ownerId, int state) {
