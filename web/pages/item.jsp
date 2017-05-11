@@ -53,8 +53,8 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#"> Sofa</a></li>
-            <li class="active"><%=item.getType()%>
+            <li><a href="#"><%=item.getType()%></a></li>
+            <li class="active"><%=item.getName()%>
             </li>
         </ol>
     </div>
