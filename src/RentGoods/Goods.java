@@ -64,6 +64,25 @@ public class Goods {
 
     public Goods(){}
 
+    //拥有所有参数
+    public Goods(String id, String name, String type, String fineness, String description, ArrayList<String> pictures, String ownerId, Date dateChanged, int state, String borrowerId, Date dateReturn, String address, double deposit, double price, double originprice) {
+        Id = id;
+        this.name = name;
+        this.type = type;
+        this.fineness = fineness;
+        this.description = description;
+        this.pictures = pictures;
+        this.ownerId = ownerId;
+        this.dateChanged = dateChanged;
+        this.state = state;
+        this.borrowerId = borrowerId;
+        this.dateReturn = dateReturn;
+        this.address = address;
+        this.deposit = deposit;
+        this.price = price;
+        this.originprice = originprice;
+    }
+
     public Goods(String id, String name, String type, String fineness, String description, String ownerId, int state) {
         Id = id;
         this.name = name;
