@@ -14,7 +14,11 @@ public class User {
     private int sex;
     private double credit;
 
-    public User(String userName,String password){
+    private String nickname;
+
+
+
+    public User(String userName, String password){
         this.userName = userName;
         this.password = password;
         studentID = null;
@@ -102,5 +106,17 @@ public class User {
 
     public void setStudentID(String studentID) {
         this.studentID = studentID;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getNickname() {
+
+        return nickname;
     }
 }
