@@ -15,6 +15,9 @@ public class User {
     private double credit;
     private String nickName;
 
+
+    public User(){}
+
     public User(String userName,String password){
         this.userName = userName;
         this.password = password;

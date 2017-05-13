@@ -1,5 +1,7 @@
 package RentGoods;
 
+import org.json.simple.JSONObject;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 /**
@@ -131,6 +134,22 @@ public class UserManageServlet extends HttpServlet{
                     e.printStackTrace();
                 }
                 break;
+            case "/getUserChatInfo":
+                String who = req.getParameter("who");
+                try {
+                    dao.getConnection();
+                    User chat = dao.getUserChatInfo(who);
+                    JSONObject json = new JSONObject();
+                    json.put("nickname",chat.getNickName());
+                    json.put("head",chat.getHead());
+                    PrintWriter writer = resp.getWriter();
+                    writer.print(json.toJSONString());
+                    break;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
         }
     }
 }

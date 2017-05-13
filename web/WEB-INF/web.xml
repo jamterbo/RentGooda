@@ -46,6 +46,7 @@
         <url-pattern>/register</url-pattern>
         <url-pattern>/UserInfo</url-pattern>
         <url-pattern>/UserInfoManage</url-pattern>
+        <url-pattern>/getUserChatInfo</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>viewController</servlet-name>

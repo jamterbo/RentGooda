@@ -77,6 +77,19 @@ public class UserDAO {
 
     }
 
+    //获取用户的基本信息用于聊天窗口
+    public User getUserChatInfo(String who) throws SQLException {
+        String query = "select nickname,head from userinfo where userName=?";
+        PreparedStatement pstat = connection.prepareStatement(query);
+        pstat.setString(1,who);
+        ResultSet person = pstat.executeQuery();
+        person.next();
+        User user = new User();
+        user.setNickName(person.getString("nickname"));
+        user.setHead(person.getString("head"));
+        return user;
+    }
+
     //修改用户信息
     public void changeUserInfo(User user) throws SQLException {
         //sql语句

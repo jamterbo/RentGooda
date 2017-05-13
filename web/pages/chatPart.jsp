@@ -35,11 +35,11 @@
                 ResultSet person = pstat.executeQuery();
                 person.next();
     %>
-    <div class="contact" id="<%=set.getString("withWho")%>">
+    <div class="contact" id="<%=set.getString("withWho")%>" onclick="chatShow()">
         <img src="<%=".."+person.getString("head")%>" class="contact__photo" height="34px" width="34px"/>
         <span class="contact__name" ><%=person.getString("nickname")%></span>
         <span class="contact__status"></span>
-        <img src="../pages/img/icons/delete.ico" height="16px" class="contact__delete">
+        <img src="../pages/img/icons/delete.ico" height="16px" class="contact__delete" onclick="deleteContact()">
     </div>
     <%
         }
@@ -95,7 +95,12 @@
                         if(i==chat.chatWith || i==chat.name){
                             $('.chat__messages').append(json[i]);
                         }else if(chat.ready == true){
-                            document.getElementById(i)
+                            var contact = document.getElementById(i);
+                            if (contact == null){
+                                updateContact(i);
+                            }else {
+                                document.getElementById(i).querySelector(".contact__status").className = 'contact__status online';
+                            }
                         }
                     }
                     chat.ready = true;
@@ -131,40 +136,65 @@
                 });
             }
             connection();
-            $('.chat__back').click(function () {
-                $('.chat').hide();
-                chat.chatWith = null;
-            });
-            $(".contact").click(function () {
-                $('.chat').show();
-                chat.chatWith = $(this).attr('id');
-                nickname = $(this).find('.contact__name').text();
-                $(this).find('.contact__status').attr('id','contact__status');
-                $('.chat__messages').empty();
-                $('.chat__messages').append(record[chat.chatWith]);
-                $('.chat__name').empty();
-                $('.chat__name').append(nickname);
-            });
-            $('.chat_icon').click(function () {
-                $('.chatPart').show();
-                $('.chat_icon').hide();
-            });
-            $('.chatPart_close').click(function () {
-                $('.chatPart').hide();
-                $('.chat_icon').show();
-            });
-            $('.contact__delete').click(function () {
-                $('.chat').hide();
-                chat.chatWith = null;
-                var json = {};
-                json.method = 'delete';
-                json.delete = $(this).parent('.contact').attr('id');
-                chat.socket.send(JSON.stringify(json));
-                $(this).parent('.contact').remove();
-            });
+
         }else {
 
         }
+        function updateContact(who) {
+            var xmlhttp;
+            if(window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                    var receive = JSON.parse(xmlhttp.responseText);
+                    var friend = "<div class='contact' id="+who+" onmousemove='chatShow()'> <img src='"+receive.head+"' class='contact__photo' height='34px' width='34px'/> <span class='contact__name' >"+receive.nickname+"</span> <span class='contact__status online'></span> <img src='../pages/img/icons/delete.ico' height='16px' class='contact__delete' onmousemove='deleteContact()'> </div>"
+                    $('.sidebar-content').append(friend);
+                }
+            }
+            xmlhttp.open("GET","/getUserChatInfo?who="+who,true);
+            xmlhttp.send();
+        }
+
     });
+    $('.chat__back').click(function () {
+                $('.chat').hide();
+                chat.chatWith = null;
+            });
+    function chatShow() {
+        $('.contact').click(function () {
+            $('.chat').show();
+            chat.chatWith = $(this).attr('id');
+            nickname = $(this).find('.contact__name').text();
+            $(this).find('.contact__status').attr('class','contact__status');
+            $('.chat__messages').empty();
+            $('.chat__messages').append(record[chat.chatWith]);
+            $('.chat__name').empty();
+            $('.chat__name').append(nickname);
+        })
+
+    };
+    $('.chat_icon').click(function () {
+        $('.chatPart').show();
+        $('.chat_icon').hide();
+    });
+    $('.chatPart_close').click(function () {
+        $('.chatPart').hide();
+        $('.chat_icon').show();
+    });
+    function deleteContact() {
+        $('.contact__delete').click(function () {
+            $('.chat').hide();
+            chat.chatWith = null;
+            var json = {};
+            json.method = 'delete';
+            json.delete = $(this).parent('.contact').attr('id');
+            chat.socket.send(JSON.stringify(json));
+            $(this).parent('.contact').remove();
+        })
+
+    };
 </script>
 
