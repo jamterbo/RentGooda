@@ -76,43 +76,68 @@ public class UserManageServlet extends HttpServlet{
             case "/UserInfoManage":
                 //提取post信息
                 user = (User)req.getSession().getAttribute("User");
-                user.setStudentID(req.getParameter("studentId"));
+                user.setStudentID(req.getParameter("studentid"));
                 user.setSchool(req.getParameter("school"));
                 user.setTelephone(req.getParameter("telephone"));
                 user.setEmail(req.getParameter("email"));
-                user.setHead(req.getParameter("head"));
-                if (req.getParameter("sex").equals("male")){
-                    user.setSex(1);
-                }else {
-                    user.setSex(2);
-                }
-                user.setNickName(req.getParameter("nickName"));
+                user.setSex(Integer.parseInt(req.getParameter("sex")));
+                user.setNickName(req.getParameter("nickname"));
                 try {
                     //将信息发往数据库更新
                     dao.changeUserInfo(user);
+                    PrintWriter writer = resp.getWriter();
+                    writer.print("Success");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
             case "/uploadHead":
+                //获取当前登陆用户信息
                 user = (User) req.getSession().getAttribute("User");
-                int x = Integer.parseInt(req.getParameter("x"));
-                int y = Integer.parseInt(req.getParameter("y"));
-                int width = Integer.parseInt(req.getParameter("width"));
-                int height = Integer.parseInt(req.getParameter("height"));
+                //获取图片裁剪情况
+                int x=0,y=0,width=0,height=0;
+                try {
+                    x = Integer.parseInt(req.getParameter("x"));
+                    y = Integer.parseInt(req.getParameter("y"));
+                    width = Integer.parseInt(req.getParameter("width"));
+                    height = Integer.parseInt(req.getParameter("height"));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                //获取文件名、根路径、文件绝对路径等
                 Part image = req.getPart("file");
                 String rootpath = getServletContext().getInitParameter("rootpath");
                 String partpath = FileUtils.getFilePath(getServletContext().getInitParameter("Picspath"));
                 try {
                     String filename = FileUtils.getFilename(image);
+                    //下载文件
                     FileUtils.downloadFile(image.getInputStream(),rootpath+partpath,filename);
-                    FileUtils.cutImage(rootpath+partpath+filename,x,y,width,height);
+                    if(x!=0||y!=0||width!=0||height!=0){
+                        FileUtils.cutImage(rootpath+partpath+filename,x,y,width,height);
+                    }
                     user.setHead(partpath+filename);
                     dao.uploadHead(user);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (SQLException e) {
                     e.printStackTrace();
+                }
+                break;
+            case "/changePassword":
+                user = (User)req.getSession().getAttribute("User");
+                String oldPassword = req.getParameter("old");
+                String newPassword = req.getParameter("new");
+                PrintWriter writer = resp.getWriter();
+                if(user.getPassword().equals(oldPassword)){
+                    user.setPassword(newPassword);
+                    try {
+                        dao.updatePassword(user);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    writer.print("success");
+                }else {
+                    writer.print("oldError");
                 }
                 break;
             default:

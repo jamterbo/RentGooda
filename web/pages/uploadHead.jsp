@@ -15,7 +15,7 @@
     <script type="text/javascript" src="../pages/js/jquery.imgareaselect.min.js"></script>
 </head>
 <body>
-<div class="frame" style="float:left;margin-right:50px">
+<div>
     <img id="photo" src="../pages/images/flower2.jpg">
 </div>
 <div id="preview" style="width: 100px; height: 100px; overflow: hidden;">
@@ -29,8 +29,8 @@
     <input id="upload" type="file" name="file" onchange="change(this)"/>
 </form>
 <input type="button" onclick="upload()" value="确认">
-<br/>
-<script type="application/javascript">
+
+<script type="text/javascript">
     function upload() {
         var formdata = new FormData();
         formdata.append('file',$('#upload')[0].files[0]);
@@ -50,9 +50,6 @@
             alert('false');
         });
     };
-</script>
-
-<script type="text/javascript">
     function clacImgZoomParam( maxWidth, maxHeight, width, height ){
         var param = {top:0, left:0, width:width, height:height};
         console.log(param);

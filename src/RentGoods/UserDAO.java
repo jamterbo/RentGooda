@@ -93,17 +93,16 @@ public class UserDAO {
     //修改用户信息
     public void changeUserInfo(User user) throws SQLException {
         //sql语句
-        String update = "update userinfo set studentId=?,school=?,telephone=?,email=?,head=?,sex=?,nickname=? where userName=?";
+        String update = "update userinfo set studentId=?,school=?,telephone=?,email=?,sex=?,nickname=? where userName=?";
         PreparedStatement pstat = connection.prepareStatement(update);
         //sql语句准备
         pstat.setString(1,user.getStudentID());
         pstat.setString(2,user.getSchool());
         pstat.setString(3,user.getTelephone());
         pstat.setString(4,user.getEmail());
-        pstat.setString(5,user.getHead());
-        pstat.setInt(6,user.getSex());
-        pstat.setString(7,user.getNickName());
-        pstat.setString(8,user.getUserName());
+        pstat.setInt(5,user.getSex());
+        pstat.setString(6,user.getNickName());
+        pstat.setString(7,user.getUserName());
         //执行更新
         pstat.executeUpdate();
 
@@ -115,6 +114,15 @@ public class UserDAO {
         String update = "UPDATE userinfo SET head=? WHERE userName=?";
         PreparedStatement pstat = connection.prepareStatement(update);
         pstat.setString(1,user.getHead());
+        pstat.setString(2,user.getUserName());
+        pstat.executeUpdate();
+    }
+
+    //更新密码
+    public void updatePassword(User user) throws SQLException {
+        String update = "UPDATE userinfo SET password=? WHERE userName=?";
+        PreparedStatement pstat = connection.prepareStatement(update);
+        pstat.setString(1,user.getPassword());
         pstat.setString(2,user.getUserName());
         pstat.executeUpdate();
     }
