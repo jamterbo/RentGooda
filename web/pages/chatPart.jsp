@@ -95,6 +95,7 @@
                         if(i==chat.chatWith || i==chat.name){
                             $('.chat__messages').append(json[i]);
                         }else if(chat.ready == true){
+                            document.getElementById(i)
                         }
                     }
                     chat.ready = true;

@@ -66,7 +66,24 @@ public class UserManageServlet extends HttpServlet{
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            case "/changeUserInfo":
+            case "/UserInfoManage":
+                user = (User)req.getSession().getAttribute("User");
+                user.setStudentID(req.getParameter("studentId"));
+                user.setSchool(req.getParameter("school"));
+                user.setTelephone(req.getParameter("telephone"));
+                user.setEmail(req.getParameter("email"));
+                user.setHead(req.getParameter("head"));
+                if (req.getParameter("sex").equals("male")){
+                    user.setSex(1);
+                }else {
+                    user.setSex(2);
+                }
+                user.setNickName(req.getParameter("nickName"));
+                try {
+                    dao.changeUserInfo(user);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             default:
 
         }

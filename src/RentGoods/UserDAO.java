@@ -72,4 +72,21 @@ public class UserDAO {
         user.setTelephone(set.getString("telephone"));
         user.setSex(set.getInt("sex"));
     }
+
+    //修改用户信息
+    public void changeUserInfo(User user) throws SQLException {
+        //sql语句
+        String update = "update userinfo set studentId=?,school=?,telephone=?,email=?,head=?,sex=?,nickname=? where userName=?";
+        PreparedStatement pstat = connection.prepareStatement(update);
+        pstat.setString(1,user.getStudentID());
+        pstat.setString(2,user.getSchool());
+        pstat.setString(3,user.getTelephone());
+        pstat.setString(4,user.getEmail());
+        pstat.setString(5,user.getHead());
+        pstat.setInt(6,user.getSex());
+        pstat.setString(7,user.getNickName());
+        pstat.setString(8,user.getUserName());
+        pstat.executeUpdate();
+
+    }
 }

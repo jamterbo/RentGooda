@@ -13,6 +13,7 @@ public class User {
     private String head;
     private int sex;
     private double credit;
+    private String nickName;
 
     public User(String userName,String password){
         this.userName = userName;
@@ -24,6 +25,7 @@ public class User {
         head = null;
         sex = 0;
         credit = 0;
+        nickName = null;
     }
 
     public String getUserName(){
@@ -102,5 +104,13 @@ public class User {
 
     public void setStudentID(String studentID) {
         this.studentID = studentID;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 }
