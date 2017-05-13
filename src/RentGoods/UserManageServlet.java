@@ -4,20 +4,22 @@ import org.json.simple.JSONObject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by LingHanchen on 2017/4/21.
  */
+@MultipartConfig
 public class UserManageServlet extends HttpServlet{
     //处理POST方法
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         //获取数据库连接、账户、密码
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
@@ -88,6 +90,27 @@ public class UserManageServlet extends HttpServlet{
                 try {
                     //将信息发往数据库更新
                     dao.changeUserInfo(user);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "/uploadHead":
+                user = (User) req.getSession().getAttribute("User");
+                int x = Integer.parseInt(req.getParameter("x"));
+                int y = Integer.parseInt(req.getParameter("y"));
+                int width = Integer.parseInt(req.getParameter("width"));
+                int height = Integer.parseInt(req.getParameter("height"));
+                Part image = req.getPart("file");
+                String rootpath = getServletContext().getInitParameter("rootpath");
+                String partpath = FileUtils.getFilePath(getServletContext().getInitParameter("Picspath"));
+                try {
+                    String filename = FileUtils.getFilename(image);
+                    FileUtils.downloadFile(image.getInputStream(),rootpath+partpath,filename);
+                    FileUtils.cutImage(rootpath+partpath+filename,x,y,width,height);
+                    user.setHead(partpath+filename);
+                    dao.uploadHead(user);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

@@ -108,4 +108,14 @@ public class UserDAO {
         pstat.executeUpdate();
 
     }
+
+    //上传头像
+    public void uploadHead(User user) throws SQLException{
+        //sql语句
+        String update = "UPDATE userinfo SET head=? WHERE userName=?";
+        PreparedStatement pstat = connection.prepareStatement(update);
+        pstat.setString(1,user.getHead());
+        pstat.setString(2,user.getUserName());
+        pstat.executeUpdate();
+    }
 }

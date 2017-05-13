@@ -1,6 +1,8 @@
 package RentGoods;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.Part;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Collection;
 
@@ -34,7 +36,17 @@ public class FileUtils {
             writer.write(data);
             flag = reader.read(data,0,data.length);
         }
+        writer.flush();
         reader.close();
         writer.close();
+    }
+
+    public static void cutImage(String filepath,int x,int y,int width,int height) throws IOException {
+        File image = new File(filepath);
+        String fileType = filepath.substring(filepath.lastIndexOf(".")+1);
+        BufferedImage cutimage = ImageIO.read(image);
+        cutimage = cutimage.getSubimage(x,y,width,height);
+        image.delete();
+        ImageIO.write(cutimage,fileType,image);
     }
 }

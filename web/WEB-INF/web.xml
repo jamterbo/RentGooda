@@ -47,6 +47,7 @@
         <url-pattern>/UserInfo</url-pattern>
         <url-pattern>/UserInfoManage</url-pattern>
         <url-pattern>/getUserChatInfo</url-pattern>
+        <url-pattern>/uploadHead</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>viewController</servlet-name>
