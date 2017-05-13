@@ -66,7 +66,10 @@ public class UserManageServlet extends HttpServlet{
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
+                //个人信息管理
             case "/UserInfoManage":
+                //提取post信息
                 user = (User)req.getSession().getAttribute("User");
                 user.setStudentID(req.getParameter("studentId"));
                 user.setSchool(req.getParameter("school"));
@@ -80,10 +83,12 @@ public class UserManageServlet extends HttpServlet{
                 }
                 user.setNickName(req.getParameter("nickName"));
                 try {
+                    //将信息发往数据库更新
                     dao.changeUserInfo(user);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
             default:
 
         }
@@ -116,7 +121,7 @@ public class UserManageServlet extends HttpServlet{
             case "/UserInfo":
                 try {
                     dao.getConnection();
-                    dao.search(user);
+                    dao.getUserInfo(user);
                     dao.closeConnection();
                     session.setAttribute("User",user);
                     req.getRequestDispatcher("/pages/userhome.jsp").forward(req,resp);
@@ -125,8 +130,7 @@ public class UserManageServlet extends HttpServlet{
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-
-
+                break;
         }
     }
 }

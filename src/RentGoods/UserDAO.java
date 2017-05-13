@@ -57,20 +57,24 @@ public class UserDAO {
     }
 
     //获得特定的用户
-    public void search(User user) throws SQLException {
+    public void getUserInfo(User user) throws SQLException {
         //sql语句
-        String sql = "select studentId,school,telephone,email,head,sex from userinfo where userName=?";
+        String sql = "select studentId,school,telephone,email,head,sex,credit,nickname from userinfo where userName=?";
         PreparedStatement pstat = connection.prepareStatement(sql);
         pstat.setString(1,user.getUserName());
         ResultSet set = pstat.executeQuery();
-        set.next();
-        //获取用户的个人信息
-        user.setEmail(set.getString("email"));
-        user.setHead(set.getString("head"));
-        user.setStudentID(set.getString("studentId"));
-        user.setSchool(set.getString("school"));
-        user.setTelephone(set.getString("telephone"));
-        user.setSex(set.getInt("sex"));
+        if (set.next()){
+            //获取用户的个人信息
+            user.setEmail(set.getString("email"));
+            user.setHead(set.getString("head"));
+            user.setStudentID(set.getString("studentId"));
+            user.setSchool(set.getString("school"));
+            user.setTelephone(set.getString("telephone"));
+            user.setSex(set.getInt("sex"));
+            user.setNickName(set.getString("nickname"));
+            user.setCredit(set.getDouble("credit"));
+        }
+
     }
 
     //修改用户信息
@@ -78,6 +82,7 @@ public class UserDAO {
         //sql语句
         String update = "update userinfo set studentId=?,school=?,telephone=?,email=?,head=?,sex=?,nickname=? where userName=?";
         PreparedStatement pstat = connection.prepareStatement(update);
+        //sql语句准备
         pstat.setString(1,user.getStudentID());
         pstat.setString(2,user.getSchool());
         pstat.setString(3,user.getTelephone());
@@ -86,6 +91,7 @@ public class UserDAO {
         pstat.setInt(6,user.getSex());
         pstat.setString(7,user.getNickName());
         pstat.setString(8,user.getUserName());
+        //执行更新
         pstat.executeUpdate();
 
     }

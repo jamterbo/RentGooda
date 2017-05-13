@@ -25,7 +25,7 @@ public class User {
         head = null;
         sex = 0;
         credit = 0;
-        nickName = null;
+        nickName = userName;
     }
 
     public String getUserName(){
