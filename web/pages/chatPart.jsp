@@ -2,7 +2,8 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="RentGoods.User" %>
-<%@ page import="java.sql.ResultSet" %><%--
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="RentGoods.UserDAO" %><%--
   Created by IntelliJ IDEA.
   User: LingHanchen
   Date: 17/5/11
@@ -23,23 +24,21 @@
             String DB_URl = request.getServletContext().getInitParameter("DB_URL");
             String root = request.getServletContext().getInitParameter("username");
             String password = request.getServletContext().getInitParameter("password");
+            UserDAO dao = new UserDAO(DB_URl,root,password);
             Connection connection = DriverManager.getConnection(DB_URl,root,password);
             String query = "select withWho from chatInfo where userName=?";
             PreparedStatement pstat = connection.prepareStatement(query);
             pstat.setString(1,user.getUserName());
             ResultSet set = pstat.executeQuery();
             while(set.next()){
-                query = "select nickname,head from userinfo where userName=?";
-                pstat = connection.prepareStatement(query);
-                pstat.setString(1,set.getString("withWho"));
-                ResultSet person = pstat.executeQuery();
-                person.next();
+                dao.getConnection();
+                User temp = dao.getUserChatInfo(set.getString("withWho"));
     %>
-    <div class="contact" id="<%=set.getString("withWho")%>" onclick="chatShow()">
-        <img src="<%=".."+person.getString("head")%>" class="contact__photo" height="34px" width="34px"/>
-        <span class="contact__name" ><%=person.getString("nickname")%></span>
+    <div class="contact" id="<%=set.getString("withWho")%>" onmouseover="chatShow()">
+        <img src="<%=".."+temp.getHead()%>" class="contact__photo" height="34px" width="34px"/>
+        <span class="contact__name" ><%=temp.getNickName()%></span>
         <span class="contact__status"></span>
-        <img src="../pages/img/icons/delete.ico" height="16px" class="contact__delete" onclick="deleteContact()">
+        <img src="../pages/img/icons/delete.ico" height="16px" class="contact__delete" onmouseover="deleteContact()">
     </div>
     <%
         }
