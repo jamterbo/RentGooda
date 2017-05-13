@@ -15,11 +15,9 @@ public class JsonUtils {
         return json;
     }
 
-    public static JSONObject getJson(String fromWho,String mainInfo,String toWho){
+    public static JSONObject getJson(String mainInfo,String toWho){
         JSONObject json = new JSONObject();
-        json.put("fromWho",fromWho);
-        json.put("mainInfo",mainInfo);
-        json.put("toWho",toWho);
+        json.put(toWho,mainInfo);
         return json;
     }
 }
