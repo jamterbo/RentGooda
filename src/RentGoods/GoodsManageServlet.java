@@ -15,9 +15,10 @@ import java.util.Collection;
 /**
  * Created by haoyun on 2017/4/26.
  */
+@MultipartConfig
 public class GoodsManageServlet extends HttpServlet {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");  //设置编码格式
         String method = req.getRequestURI();//获取要执行的操作
         //获取数据库的地址，帐号，密码

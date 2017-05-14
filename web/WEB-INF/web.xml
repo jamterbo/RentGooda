@@ -28,7 +28,7 @@
         <servlet-name>GoodsManage</servlet-name>
         <servlet-class>RentGoods.GoodsManageServlet</servlet-class>
         <multipart-config>
-            <location>D:\realWeb\newRentGooda\web\Pictures</location>
+            <location>/Users/LingHanchen/Desktop/ideaProjects/RentGooda/web/Pictures</location>
         </multipart-config>
     </servlet>
     <servlet-mapping>
@@ -47,6 +47,10 @@
         <url-pattern>/login</url-pattern>
         <url-pattern>/register</url-pattern>
         <url-pattern>/UserInfo</url-pattern>
+        <url-pattern>/UserInfoManage</url-pattern>
+        <url-pattern>/getUserChatInfo</url-pattern>
+        <url-pattern>/uploadHead</url-pattern>
+        <url-pattern>/changePassword</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>viewController</servlet-name>
@@ -58,21 +62,6 @@
         <url-pattern>/signup</url-pattern>
         <url-pattern>/publish</url-pattern>
     </servlet-mapping>
-
-    <filter>
-        <filter-name>RequestFilter</filter-name>
-        <filter-class>RentGoods.RequestFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>RequestFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>RequestFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
-
-
     <welcome-file-list>
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
