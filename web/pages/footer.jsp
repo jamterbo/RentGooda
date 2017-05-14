@@ -6,7 +6,43 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- All css files are included here. -->
+    <!-- Bootstrap framework main css -->
+    <%--<link rel="stylesheet" href="../pages/css/bootstrap.min.css">--%>
+    <!-- This core.css file contents all plugings css file. -->
+    <%--<link rel="stylesheet" href="../pages/css/core.css">--%>
+    <!-- Theme shortcodes/elements style -->
+    <%--<link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">--%>
+
 <!-- service-area start -->
+    <style type="text/css">
+       .service-icon{
+           float: left;
+       }
+        .service-icon i{
+            color: #ffae00;
+            display: inline-block;
+            font-size: 48px;
+            line-height: 47px;
+            margin-right: 15px
+        }
+        .service-title{
+            margin-left: 50px;
+        }
+        .service-title h3{
+            color: #252525;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 23px;
+            text-transform: uppercase;
+        }
+       .service-title p {
+           color: #7d7d7d;
+           font-size: 13px;
+           line-height: 23px;
+           margin: 0;
+       }
+    </style>
 <div class="service-area pt-70 pb-40 gray-bg">
     <div class="container">
         <div class="row">
@@ -63,7 +99,7 @@
     <div class="footer-top-area ptb-60">
         <div class="container">
             <div class="row">
-                <div class="col-md-2 col-sm-4">
+                <div class="col-md-2 col-sm-4 col-md-offset-3">
                     <div class="footer-widget">
                         <h3 class="footer-title">My account</h3>
                         <ul class="block-content">
@@ -119,3 +155,4 @@
     <!-- footer-bootom-area end -->
 </footer>
 <!-- footer end -->
+

@@ -7,102 +7,28 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <%--<meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%--<meta name="description" content="">--%>
-    <%--<meta name="author" content="">--%>
-    <%--<link rel="icon" href="../pages/favicon.ico">--%>
 
     <title>登录</title>
     <meta name="description" content="">
-    <!-- favicon
-    ============================================ -->
-    <%--<link rel="shortcut icon" type="image/x-icon" href="../pages/img/favicon.png">--%>
-
     <!-- All css files are included here. -->
     <!-- This core.css file contents all plugings css file. -->
     <link rel="stylesheet" href="../pages/css/core.css">
     <!-- Theme shortcodes/elements style -->
-    <%--<link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">--%>
+    <link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">
     <!-- Theme main style -->
     <%--<link rel="stylesheet" href="../pages/css/style.css">--%>
     <!-- Responsive css -->
-    <%--<link rel="stylesheet" href="../pages/css/responsive.css">--%>
+    <link rel="stylesheet" href="../pages/css/responsive.css">
     <!-- User style -->
     <%--<link rel="stylesheet" href="../pages/css/custom.css">--%>
-
-    <!-- Modernizr JS -->
-    <%--<script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>--%>
     <!-- Bootstrap core CSS -->
     <link href="../pages/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="../pages/css/login.css" rel="stylesheet">
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <%--<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>--%>
-    <!--<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
-    <![endif]-->
-
 
 </head>
 <div class="container">
-<%--
-<!-- header start -->
-<header class="header-pos blg">
-    <div class="header-area header-middle">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2 col-sm-3 col-xs-12">
-                    <div class="logo">
-                        <a href="index.html"><img src="../pages/img/logo/logo.jpg" alt=""/></a>
-                    </div>
-                </div>
-                <div class="col-md-10 col-sm-9 col-xs-12 text-right xs-center">
-                    <div class="main-menu display-inline hidden-sm hidden-xs">
-                        <nav>
-                            <ul>
-                                <li><a href="index.html">主页</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="search-block-top display-inline">
-                        <div class="icon-search"></div>
-                        <div class="toogle-content">
-                            <form action="#" id="searchbox">
-                                <input type="text" placeholder="Search"/>
-                                <button class="button-search"></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mobile-menu-area visible-sm visible-xs">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mobile-menu">
-                        <nav id="mobile-menu-active">
-                            <ul>
-                                <li><a href="index.html">主页</a></li>
-                                <li><a href="shop.html">分类</a></li>
-                                <li><a href="#">发布出租</a></li>
-                                <li><a href="#">个人中心</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<div class="space-custom"></div>
-<!-- header end -->
---%>
+    <jsp:include page="nvi.jsp"/>
 <div class="shop-area wrap">
     <div class="register-wrap" id="register-wrap">
         <div class="pic" id="pic">
@@ -197,23 +123,14 @@
 
 
 <!-- footer start -->
-<%--<div><jsp:include page="footer.jsp"/></div>--%>
+<div><jsp:include page="footer.jsp"/></div>
 <!-- footer end -->
+</div>
 
 <!-- jquery latest version -->
 <script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
-<!-- Bootstrap framework js -->
-<script src="../pages/js/bootstrap.min.js"></script>
-<!-- owl.carousel js -->
-<%--<script src="../pages/js/owl.carousel.min.js"></script>--%>
-<!-- owl.carousel js -->
-<%--<script src="../pages/js/jquery-ui.min.js"></script>--%>
-<!-- jquery.nivo.slider js -->
-<%--<script src="../pages/js/jquery.nivo.slider.pack.js"></script>--%>
-<!-- All js plugins included in this file. -->
-<%--<script src="../pages/js/plugins.js"></script>--%>
-<!-- Main js file that contents all jQuery plugins activation. -->
-<%--<script src="../pages/js/main.js"></script>--%>
 <script src="../pages/js/login.js"></script>
+<script src="../pages/js/plugins.js"></script>
+<script src="../pages/js/main.js"></script>
 </body>
 </html>

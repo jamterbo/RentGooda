@@ -17,7 +17,7 @@ a{
 }
 .wrap{
 	/*width:70%;*/
-	margin:0 auto;
+	margin:110px auto;
 	overflow:auto;/*margin嵌套问题*/
 }
 .wrap:before{/*margin嵌套问题*/
@@ -135,7 +135,7 @@ a{
 	width:300px;
 	height:32px;
 	padding:0 6px;
-	color:#ff1877;
+	color:#ffae00;
 	border:1px solid #ffd797;
 	display:none;
 }
@@ -143,7 +143,7 @@ a{
 	width:300px;
 	height:32px;
 	padding:0 6px;
-	color:#ff1877;
+	color:#ffae00;
 	border:1px solid #ffd797;
 	display:none;
 }
@@ -165,13 +165,13 @@ a{
 	border:none;
 }
 .register-con ul #rc-inner-num>span,#rc-inner-virity>span,#rc-innerError>span{
-	color:#ff1877;
+	color:#ffae00;
 	display:inline-block;
 	float:left;
 	line-height:26px;
 }
 .register-con ul #inner-num>span,#inner-virity>spanspan{
-	color:#ff1877;
+	color:#ffae00;
 	display:inline-block;
 	float:left;
 	line-height:26px;
@@ -220,7 +220,7 @@ a{
 	width: 300px;
 	height: 30px;
 	padding: 0 6px;
-	background: #ff1877;
+	background: #ffae00;
 	border-radius: 2px;
 	cursor: pointer;
 	color: #fff;
