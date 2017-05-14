@@ -29,6 +29,7 @@ public class UserManageServlet extends HttpServlet{
         String username = null;
         String password = null;
         User user = null;
+        PrintWriter writer = null;
         UserDAO dao = new UserDAO(DB_URL,root,root_password);
         try {
             dao.getConnection();    //建立数据库连接
@@ -43,14 +44,15 @@ public class UserManageServlet extends HttpServlet{
                 username = req.getParameter("UserName");
                 password = req.getParameter("Password");
                 user = new User(username,password);
+                writer = resp.getWriter();
                 try {
                     if (dao.login(user)){
                         HttpSession session = req.getSession();
                         //添加属性到session
                         session.setAttribute("User",user);
-                        resp.sendRedirect("/");
+                        writer.print("success");
                     }else {
-                        System.out.println("False");
+                        writer.print("wrong");
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -65,14 +67,29 @@ public class UserManageServlet extends HttpServlet{
                 username = req.getParameter("username");
                 password = req.getParameter("password");
                 user = new User(username,password);
+                writer = resp.getWriter();
                 try {
                     dao.signup(user);
-                    resp.sendRedirect("/signin");   //重定向到登陆
+                    req.getSession().setAttribute("User",user);
+                    writer.print("success");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 break;
                 //个人信息管理
+            case "/checkUser":
+                username = req.getParameter("username");
+                writer = resp.getWriter();
+                try {
+                    if (dao.checkUser(username)){
+                        writer.print("true");
+                    }else {
+                        writer.print("false");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
             case "/UserInfoManage":
                 //提取post信息
                 user = (User)req.getSession().getAttribute("User");
@@ -81,11 +98,11 @@ public class UserManageServlet extends HttpServlet{
                 user.setTelephone(req.getParameter("telephone"));
                 user.setEmail(req.getParameter("email"));
                 user.setSex(Integer.parseInt(req.getParameter("sex")));
-                user.setNickName(req.getParameter("nickname"));
+                user.setNickname(req.getParameter("nickname"));
                 try {
                     //将信息发往数据库更新
                     dao.changeUserInfo(user);
-                    PrintWriter writer = resp.getWriter();
+                    writer = resp.getWriter();
                     writer.print("Success");
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -127,7 +144,7 @@ public class UserManageServlet extends HttpServlet{
                 user = (User)req.getSession().getAttribute("User");
                 String oldPassword = req.getParameter("old");
                 String newPassword = req.getParameter("new");
-                PrintWriter writer = resp.getWriter();
+                writer = resp.getWriter();
                 if(user.getPassword().equals(oldPassword)){
                     user.setPassword(newPassword);
                     try {
@@ -167,37 +184,52 @@ public class UserManageServlet extends HttpServlet{
             resp.sendRedirect("/signin");
             return;
         }
+        try {
+            dao.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         switch (method){
             //请求个人中心
             case "/UserInfo":
                 try {
-                    dao.getConnection();
                     dao.getUserInfo(user);
                     dao.closeConnection();
                     session.setAttribute("User",user);
-                    req.getRequestDispatcher("/pages/userhome.jsp").forward(req,resp);
+                    req.getRequestDispatcher("/pages/changeUserInfo.jsp").forward(req,resp);
                 } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
                 break;
             case "/getUserChatInfo":
                 String who = req.getParameter("who");
                 try {
-                    dao.getConnection();
                     User chat = dao.getUserChatInfo(who);
                     JSONObject json = new JSONObject();
-                    json.put("nickname",chat.getNickName());
+                    json.put("nickname",chat.getNickname());
                     json.put("head",chat.getHead());
                     PrintWriter writer = resp.getWriter();
                     writer.print(json.toJSONString());
                     break;
                 } catch (SQLException e) {
                     e.printStackTrace();
-                } catch (ClassNotFoundException e) {
+                }
+            case "/getUserHead":
+                try {
+                    dao.getUserHead(user);
+                    req.getSession().setAttribute("User",user);
+                    req.getRequestDispatcher("/pages/uploadHead.jsp").forward(req,resp);
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
+                break;
+        }
+        try {
+            dao.closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
