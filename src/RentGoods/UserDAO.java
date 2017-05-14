@@ -1,12 +1,9 @@
 package RentGoods;
-
-/**
- * Created by Fantasia on 2017/4/26.
- */
 import java.sql.*;
 
 /**
  * Created by LingHanchen on 2017/4/21.
+ *
  */
 public class UserDAO {
     private Connection connection;
@@ -93,7 +90,7 @@ public class UserDAO {
             user.setSchool(set.getString("school"));
             user.setTelephone(set.getString("telephone"));
             user.setSex(set.getInt("sex"));
-            user.setNickname(set.getString("nickname"));
+            user.setNickName(set.getString("nickname"));
             user.setCredit(set.getDouble("credit"));
         }
 
@@ -107,7 +104,7 @@ public class UserDAO {
         ResultSet person = pstat.executeQuery();
         person.next();
         User user = new User();
-        user.setNickname(person.getString("nickname"));
+        user.setNickName(person.getString("nickname"));
         user.setHead(person.getString("head"));
         return user;
     }
@@ -123,7 +120,7 @@ public class UserDAO {
         pstat.setString(3,user.getTelephone());
         pstat.setString(4,user.getEmail());
         pstat.setInt(5,user.getSex());
-        pstat.setString(6,user.getNickname());
+        pstat.setString(6,user.getNickName());
         pstat.setString(7,user.getUserName());
         //执行更新
         pstat.executeUpdate();
