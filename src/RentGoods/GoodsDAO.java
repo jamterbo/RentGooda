@@ -1,14 +1,12 @@
 package RentGoods;
 
-/**
- * Created by Fantasia on 2017/4/26.
- */
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 
 /**
  * Created by Fantasia on 2017/4/25.
+ *
  */
 public class GoodsDAO {
     private Connection connection;
@@ -116,7 +114,7 @@ public class GoodsDAO {
             set.getString("fineness"),
             set.getString("description"),
             pic,
-            set.getString("owerId"),
+            set.getString("ownerId"),
             set.getDate("dateChanged"),
             set.getInt("state"),
             set.getString("borrowerId"),

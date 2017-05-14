@@ -19,13 +19,13 @@ public class GoodsManageServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");  //设置编码格式
-        String method = req.getRequestURI();    //获取要执行的操作
+        String method = req.getRequestURI();//获取要执行的操作
         //获取数据库的地址，帐号，密码
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String password = getServletContext().getInitParameter("password");
         //声明数据库对象
-        GoodsDAO goodsDAO = new GoodsDAO(DB_URL,root,password);
+        GoodsDAO goodsDAO = new GoodsDAO(DB_URL, root, password);
         try {
             goodsDAO.getConnection();   //连接数据库
         } catch (ClassNotFoundException e) {
@@ -33,7 +33,7 @@ public class GoodsManageServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        switch (method){
+        switch (method) {
             case "/addGoods":
                 try {
                     IDUtils idUtils = new IDUtils(1000);
@@ -45,19 +45,19 @@ public class GoodsManageServlet extends HttpServlet {
                     String description = req.getParameter("description");
 //                    String owner = ((User)req.getSession().getAttribute("User")).getUserName();
                     String phone = req.getParameter("phone");
-                    Goods item = new Goods(id,name,type,fineness,description,"root",0);
+                    Goods item = new Goods(id, name, type, fineness, description, "root", 0);
                     //接受图片
                     Collection<Part> parts = req.getParts();
                     ArrayList<String> picpaths = new ArrayList<String>();
                     //接收文件
                     for (Part part : parts) {
-                        if(!part.getName().equals("photo")){
+                        if (!part.getName().equals("photo")) {
                             continue;
-                        }else {
+                        } else {
                             String filename = FileUtils.getFilename(part);  //获取文件名
                             String partpath = FileUtils.getFilePath(getServletContext().getInitParameter("Picspath"));
-                            FileUtils.downloadFile(part.getInputStream(),getServletContext().getInitParameter("rootpath")+partpath,filename);
-                            picpaths.add(partpath+filename);
+                            FileUtils.downloadFile(part.getInputStream(), getServletContext().getInitParameter("rootpath") + partpath, filename);
+                            picpaths.add(partpath + filename);
                         }
                     }
                     item.setPictures(picpaths);
@@ -86,7 +86,7 @@ public class GoodsManageServlet extends HttpServlet {
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");
         String password = getServletContext().getInitParameter("password");
-        GoodsDAO goodsDAO = new GoodsDAO(DB_URL,root,password);
+        GoodsDAO goodsDAO = new GoodsDAO(DB_URL, root, password);
         try {
             goodsDAO.getConnection();   //建立数据库连接
         } catch (ClassNotFoundException e) {
@@ -94,30 +94,30 @@ public class GoodsManageServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        switch (method){
-            //请求主页
-            case "/home":
-                try {
-                    ArrayList<Goods> goods = goodsDAO.getGoods(20);
-                    req.setAttribute("goods",goods);    //添加HttpServletRequest属性
-                    //转发请求到jsp文件
-                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/index.jsp");
-                    requestDispatcher.forward(req,resp);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                break;
-                //获取特点ID的商品
-            case "/showItem?id=*":
-                String id=req.getParameter("id");
-                try {
-                    Goods good= goodsDAO.getGood(id);
-                    req.setAttribute("item",good);
-                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/item.jsp");
-                    requestDispatcher.forward(req,resp);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+
+        //请求主页
+        if (method.equals("/home")) {
+            try {
+                ArrayList<Goods> goods = goodsDAO.getGoods(20);
+                req.setAttribute("goods", goods);    //添加HttpServletRequest属性
+                //转发请求到jsp文件
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/index.jsp");
+                requestDispatcher.forward(req, resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        //获取特点ID的商品
+        if (method.startsWith("/showItem")) {
+            String id = req.getParameter("id");
+            try {
+                Goods good = goodsDAO.getGood(id);
+                req.setAttribute("item", good);
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/item.jsp");
+                requestDispatcher.forward(req, resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

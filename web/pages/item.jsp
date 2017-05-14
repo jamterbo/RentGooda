@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="RentGoods.Goods" %>
 
+
 <%--
   物品详情页
   Created by IntelliJ IDEA.
@@ -25,21 +26,25 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 
     <!-- All css files are included here. -->
-    <!-- Bootstrap framework main css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="../pages/css/core.css">
     <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">
     <!-- Theme main style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../pages/css/style.css">
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../pages/css/responsive.css">
     <!-- User style -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="../pages/css/custom.css">
 
     <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../pages/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Modernizr JS -->
+    <script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
@@ -53,7 +58,8 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#"><%=item.getType()%></a></li>
+            <li><a href="#"><%=item.getType()%>
+            </a></li>
             <li class="active"><%=item.getName()%>
             </li>
         </ol>
@@ -71,11 +77,11 @@
                     <div class="tab-content">
                         <%--这里需要有一个迭代遍历，将剩下的都遍历--%>
                         <c:forEach items="${item.getPictures()}" var="item" varStatus="status">
-                            <div class="tab-pane <c:if test="${status.count==0}" >
+                            <div class="tab-pane <c:if test="${status.count==1}" >
                             active
-</c:if>" id="${status}">
+</c:if>" id="${status.count}">
                                 <div class="pro-large-img">
-                                    <img src="img/product/2.jpg" alt=""/>
+                                    <img src="${item}" alt=""/>
                                     <a class="popup-link" href="${item}">查看大图<i class="fa fa-search-plus"
                                                                                 aria-hidden="true"></i></a>
                                 </div>
@@ -88,16 +94,16 @@
                     <ul class="details-tab">
 
                         <c:forEach items="${item.getPictures()}" var="item" varStatus="status">
-                        <li><a href="#${status.count}" data-toggle="tab"
-                                <c:if test="${status.count==0}">
-                                    class="active"
-                                </c:if>
-                        ><img src="${item}" alt=""/></a></li>
-                    </ul>
-                    </c:forEach>
+                            <li><a href="#${status.count}" data-toggle="tab"
+                                    <c:if test="${status.count==1}">
+                                        class="active"
+                                    </c:if>
+                            ><img src="${item}" alt=""/></a></li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>
+            <!--商品信息 -->
             <div class="col-xs-12 col-sm-6 col-md-7">
                 <div class="product-details">
                     <h2 class="pro-d-title"><%=item.getName()%>
@@ -110,11 +116,11 @@
                             </p>
                             <p>
                                 <label>价值: </label>
-                                <span>998</span>
+                                <span><%=item.getOriginprice()%></span>
                             </p>
                             <p>
                                 <label>押金: </label>
-                                <span>99</span>
+                                <span><%=item.getDeposit()%></span>
                             </p>
                         </div>
                         <div class="col-2">
@@ -128,13 +134,13 @@
                             </p>
                             <p>
                                 <label>地址: </label>
-                                <span>东北大学</span>
+                                <span><%=item.getAddress()%></span>
                             </p>
                         </div>
 
                     </div>
                     <div class="price-box">
-                        <p>租金<span class="price product-price"> ￥262.00</span></p>
+                        <p><span class="price product-price"> ￥<%=item.getPrice()%>/天</span></p>
 
                     </div>
                     <div class="short-desc">
@@ -180,7 +186,8 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="home3">
                     <div class="pro-desc">
-                        <p>我是商品介绍我是商品介绍我是商品介绍我是商品介绍我是商品介绍我是商品介绍我是商品介绍我是商品介绍我是商品介绍我是商品介绍</p>
+                        <p><%=item.getDescription()%>
+                        </p>
                     </div>
                 </div>
                 <div class="tab-pane" id="profile3">
@@ -220,21 +227,19 @@
     <jsp:include page="footer.jsp"/>
 </div>
 <!-- footer end -->
-<script src="./js/login.js"></script>
-
 <!-- jquery latest version -->
-<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
 <!-- Bootstrap framework js -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../pages/js/bootstrap.min.js"></script>
 <!-- owl.carousel js -->
-<script src="js/owl.carousel.min.js"></script>
+<script src="../pages/js/owl.carousel.min.js"></script>
 <!-- owl.carousel js -->
-<script src="js/jquery-ui.min.js"></script>
+<script src="../pages/js/jquery-ui.min.js"></script>
 <!-- jquery.nivo.slider js -->
-<script src="js/jquery.nivo.slider.pack.js"></script>
+<script src="../pages/js/jquery.nivo.slider.pack.js"></script>
 <!-- All js plugins included in this file. -->
-<script src="js/plugins.js"></script>
+<script src="../pages/js/plugins.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
-<script src="js/main.js"></script>
+<script src="../pages/js/main.js"></script>
 </body>
 </html>

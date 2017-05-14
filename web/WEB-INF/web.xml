@@ -5,7 +5,7 @@
          version="3.1">
     <context-param>
         <param-name>DB_URL</param-name>
-        <param-value>jdbc:mysql://r.sqwe.tk:3306/RentGoods</param-value>
+        <param-value>jdbc:mysql://r.sqwe.tk:3306/RentGood</param-value>
     </context-param>
     <context-param>
         <param-name>username</param-name>
@@ -35,6 +35,8 @@
         <servlet-name>GoodsManage</servlet-name>
         <url-pattern>/addGoods</url-pattern>
         <url-pattern>/home</url-pattern>
+        <url-pattern>/showItem</url-pattern>
+
     </servlet-mapping>
     <servlet>
         <servlet-name>UserManage</servlet-name>
