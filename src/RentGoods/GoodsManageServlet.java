@@ -96,11 +96,16 @@ public class GoodsManageServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        //请求主页
+        //请求主页，这里面需要给主页返回四个list，轮播图以后再说
         if (method.equals("/home")) {
             try {
-                ArrayList<Goods> goods = goodsDAO.getGoods(20);
-                req.setAttribute("goods", goods);    //添加HttpServletRequest属性
+                ArrayList<Goods> book = goodsDAO.getGoodsByType(8,"book");
+                ArrayList<Goods> sport = goodsDAO.getGoodsByType(8,"sport");
+                ArrayList<Goods> IT = goodsDAO.getGoodsByType(8,"IT");
+
+                req.setAttribute("book", book);    //添加HttpServletRequest属性
+                req.setAttribute("sport", sport);    //添加HttpServletRequest属性
+                req.setAttribute("IT", IT);    //添加HttpServletRequest属性
                 //转发请求到jsp文件
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/index.jsp");
                 requestDispatcher.forward(req, resp);
@@ -108,7 +113,7 @@ public class GoodsManageServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        //获取特点ID的商品
+        //获取特定ID的商品
         if (method.startsWith("/showItem")) {
             String id = req.getParameter("id");
             try {
