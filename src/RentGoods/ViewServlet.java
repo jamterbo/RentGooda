@@ -38,6 +38,10 @@ public class ViewServlet extends HttpServlet{
             case "/publish":
                 requestDispatcher = req.getRequestDispatcher("/pages/addGoods.jsp");
                 requestDispatcher.forward(req,resp);
+                break;
+            case "/getPassChange":
+                req.getRequestDispatcher("/pages/updatePasswordSimple.jsp").forward(req,resp);
+                break;
             default:
                 break;
         }

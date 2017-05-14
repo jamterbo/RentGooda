@@ -1,4 +1,4 @@
-<%--
+<%@ page import="RentGoods.User" %><%--
   Created by IntelliJ IDEA.
   User: LingHanchen
   Date: 17/5/13
@@ -6,29 +6,77 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
+<%User user = (User) session.getAttribute("User");%>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>上传头像</title>
     <link rel="stylesheet" type="text/css" href="../pages/css/imgareaselect-animated.css">
     <script type="text/javascript" src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="../pages/js/jquery.imgareaselect.min.js"></script>
-</head>
-<body>
-<div>
-    <img id="photo" src="../pages/images/flower2.jpg">
-</div>
-<div id="preview" style="width: 100px; height: 100px; overflow: hidden;">
-    <img id="view_photo" src="../pages/images/flower2.jpg" style="width: 100px; ">
-</div><br/><br/>
-<form action="/uploadHead" method="post" enctype="multipart/form-data">
-    <input id="startX" name='x' readonly="readonly" style="display: none"/>
-    <input id="startY" name='y' readonly="readonly" style="display: none"/>
-    <input id="width" name="width" readonly="readonly" style="display: none"/>
-    <input id="height" name="height" readonly="readonly" style="display: none"/>
-    <input id="upload" type="file" name="file" onchange="change(this)"/>
-</form>
-<input type="button" onclick="upload()" value="确认">
+    <style type="text/css">
+        .uphead{
+            width: 650px;
+            height: 480px;
+            background-color: #f5f5f6;
+        }
+        .rcontent{
+            margin-left: 15px;
+        }
+
+        .upbutton{
+            background-color: #f5f5f6;
+            border: none;
+        }
+        .headbutton{
+            width: 64px;
+            height: 32px;
+            background-color: gold;
+            margin: 10px auto;
+            display: block;
+            clear: both;
+        }
+        .bigpic{
+            margin-left: 10px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            width: 300px;
+            height: 300px;
+            border: none;
+            float: left;
+            background-color: white;
+        }
+        .smallpic{
+            background-color: white;
+            margin-left: 100px;
+            margin-top: 100px;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border: none;
+            float: left;
+        }
+
+    </style>
+<div class="uphead">
+    <div class="rcontent">
+
+        <div class="bigpic">
+            <img id="photo" src="..<%=user.getHead()%>" >
+        </div>
+        <div id="preview" class="smallpic">
+            <img id="view_photo" src="..<%=user.getHead()%>" style="width: 100px;height: 100px;border:none">
+        </div>
+        <div>
+            <form action="/uploadHead" method="post" enctype="multipart/form-data">
+                <input id="startX" name='x' readonly="readonly" style="display: none"/>
+                <input id="startY" name='y' readonly="readonly" style="display: none"/>
+                <input id="width" name="width" readonly="readonly" style="display: none"/>
+                <input id="height" name="height" readonly="readonly" style="display: none"/>
+                <input id="upload" type="file" name="file" onchange="change(this)" class="upbutton"/>
+            </form>
+        </div>
+        <div>
+            <input type="button" onclick="upload()" value="确认" class="headbutton">
+        </div>
+    </div>
 
 <script type="text/javascript">
     function upload() {
@@ -143,5 +191,3 @@
         });
     }
 </script>
-</body>
-</html>

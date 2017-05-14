@@ -16,7 +16,8 @@ public class User {
 
     private String nickname;
 
-
+    public User() {
+    }
 
     public User(String userName, String password){
         this.userName = userName;
@@ -116,7 +117,6 @@ public class User {
     }
 
     public String getNickname() {
-
         return nickname;
     }
 }

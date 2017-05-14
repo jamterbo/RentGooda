@@ -55,23 +55,45 @@ public class UserDAO {
         state.setString(2,user.getPassword());
         state.execute();
     }
+    //检查用户名是否存在
+    public boolean checkUser(String username) throws SQLException {
+        String check = "SELECT userName FROM userinfo WHERE userName=?";
+        PreparedStatement pstat = connection.prepareStatement(check);
+        pstat.setString(1,username);
+        ResultSet set = pstat.executeQuery();
+        if (set.next()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    //获取用户头像路径
+    public void getUserHead(User user) throws SQLException{
+        String query = "SELECT head FROM userinfo WHERE userName=? AND password=?";
+        PreparedStatement pstat = connection.prepareStatement(query);
+        pstat.setString(1,user.getUserName());
+        pstat.setString(2,user.getPassword());
+        ResultSet set = pstat.executeQuery();
+        set.next();
+        user.setHead(set.getString(1));
+    }
 
     //获得特定的用户
     public void getUserInfo(User user) throws SQLException {
         //sql语句
-        String sql = "select studentId,school,telephone,email,head,sex,credit,nickname from userinfo where userName=?";
+        String sql = "select studentId,school,telephone,email,sex,credit,nickname from userinfo where userName=?";
         PreparedStatement pstat = connection.prepareStatement(sql);
         pstat.setString(1,user.getUserName());
         ResultSet set = pstat.executeQuery();
         if (set.next()){
             //获取用户的个人信息
             user.setEmail(set.getString("email"));
-            user.setHead(set.getString("head"));
             user.setStudentID(set.getString("studentId"));
             user.setSchool(set.getString("school"));
             user.setTelephone(set.getString("telephone"));
             user.setSex(set.getInt("sex"));
-            user.setNickName(set.getString("nickname"));
+            user.setNickname(set.getString("nickname"));
             user.setCredit(set.getDouble("credit"));
         }
 
@@ -85,7 +107,7 @@ public class UserDAO {
         ResultSet person = pstat.executeQuery();
         person.next();
         User user = new User();
-        user.setNickName(person.getString("nickname"));
+        user.setNickname(person.getString("nickname"));
         user.setHead(person.getString("head"));
         return user;
     }
@@ -101,7 +123,7 @@ public class UserDAO {
         pstat.setString(3,user.getTelephone());
         pstat.setString(4,user.getEmail());
         pstat.setInt(5,user.getSex());
-        pstat.setString(6,user.getNickName());
+        pstat.setString(6,user.getNickname());
         pstat.setString(7,user.getUserName());
         //执行更新
         pstat.executeUpdate();

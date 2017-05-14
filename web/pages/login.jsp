@@ -7,18 +7,17 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%--<meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../pages/favicon.ico">
+    <%--<meta name="description" content="">--%>
+    <%--<meta name="author" content="">--%>
+    <%--<link rel="icon" href="../pages/favicon.ico">--%>
 
     <title>登录</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
     ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="../pages/img/favicon.png">
+    <%--<link rel="shortcut icon" type="image/x-icon" href="../pages/img/favicon.png">--%>
 
     <!-- All css files are included here. -->
     <!-- This core.css file contents all plugings css file. -->
@@ -49,7 +48,7 @@
 
 
 </head>
-
+<%--
 <!-- header start -->
 <header class="header-pos blg">
     <div class="header-area header-middle">
@@ -102,17 +101,16 @@
 </header>
 <div class="space-custom"></div>
 <!-- header end -->
+--%>
 <div class="shop-area wrap">
-
     <div class="register-wrap" id="register-wrap">
         <div class="pic" id="pic">
             <img src="../pages/img/blog/1.jpg" alt="该链接已失效"/>
         </div>
         <div class="register"id="register">
             <div class="register-top" id="reg-top">
-                <h2 class="normal"id="normal">普通登录</h2>
+                <h2 class="normal"id="normal">登录</h2>
                 <h2 class="nopassword"id="nopw">注册</h2>
-                <a  id="qrcode"href="#"></a>
             </div>
 
             <!--普通登录-->
@@ -120,11 +118,11 @@
                 <form action="/login">
                     <ul>
                         <li id="rc-inner-num">
-                            <i></i>
+                            <i style="background: url(/pages/img/icons/bz_16x16.png) no-repeat 0 0"></i>
                             <span>用户名</span>
                         </li>
                         <li id="rc-inner-virity">
-                            <i></i>
+                            <i style="background: url(/pages/img/icons/bz_16x16.png) no-repeat 0 0"></i>
                             <span>请输入密码</span>
                         </li>
                         <li id="rc-innerError"style="width:300px;
@@ -139,7 +137,7 @@
 									height:20px;
 									margin:6px 10px;
 									border:none;
-									background:url(./images/bz_16x16.png) no-repeat 0 0;"></i>
+									background:url(/pages/img/icons/bz_16x16.png) no-repeat 0 0;"></i>
                             <span style="color:#ff1877;
 								display:inline-block;
 								float:left;
@@ -147,56 +145,49 @@
                         </li>
                         <br>
                         <li class="form-group">
-                            <input type="text"name="UserName"class="form-control"placeholder="用户名"/>
+                            <input type="text"name="UserName"class="form-control" id="login_username" placeholder="用户名"/>
                             <span class="fa fa-check success" style="display:none;color:green;position:relative;left:-25px;top:5px;"></span>
 
                         </li>
                         <br>
                         <li class="form-group">
-                            <input type="password"name="Password"id="pass"class="form-control"placeholder="密码"/>
-                        </li>
-                        <li class="read">
-                            <input type="checkbox" class="ck" name="check"value="1"checked="checked"/>
-                            <b>记住密码</b>
+                            <input type="password"name="Password"id="login_password"class="form-control"placeholder="密码"/>
                         </li>
                         <li>
-                            <button class="submit"type="submit"id="login-btn"style="border-radius:5px;">立即登录</button>
+                            <button class="submit"type="button"id="login-btn"style="border-radius:5px;">立即登录</button>
                         </li>
                     </ul>
                 </form>
             </div>
-            <!--手机无密码登录-->
-            <div class="login-con" id="lc">
+            <!--注册-->
+            <div class="register-con" id="lc">
                 <form action="#">
                     <ul>
                         <li id="inner-num">
-                            <i></i>
+                            <i style="background: url(/pages/img/icons/bz_16x16.png) no-repeat 0 0"></i>
                             <span>请输入用户名</span>
                         </li>
                         <li id="inner-virity">
-                            <i></i>
+                            <i style="background: url(/pages/img/icons/bz_16x16.png) no-repeat 0 0"></i>
                             <span>请输入验证码</span>
                         </li>
                         <br>
                         <li class="password form-group">
-                            <input type="text"name="phone-num"class="form-control"placeholder="用户名"/>
+                            <input type="text"name="username"class="form-control" id="register_username" placeholder="用户名"/>
+                            <span class="fa fa-check success" style="display:none;color:green;position:relative;left:-25px;top:5px;"></span>
                         </li>
                         <br>
                         <li class="password form-group">
-                            <input type="password"name="password"id="pass"class="form-control"placeholder="密码"/>
-
+                            <input type="password"name="password"id="register_password"class="form-control"placeholder="密码"/>
                         </li>
+                        <small>&nbsp;&nbsp;&nbsp;密码必须为8-16位<br/>&nbsp;&nbsp;&nbsp;必须有字母、数字或特殊字符其中两种</small>
+                        <br>
                         <br>
                         <li>
-                            <button class="submit"type="submit"id="login-btn1"style="border-radius:5px;">注册</button>
+                            <button class="submit"type="button"id="login-btn1"style="border-radius:5px;">注册</button>
                         </li>
                     </ul>
                 </form>
-            </div>
-            <!-- 扫码登录 -->
-            <div class="saoma" id="sm">
-                <div class="screen-tu"id="screen"></div>
-                <div class="saoyisao"></div>
             </div>
         </div>
     </div>
@@ -204,10 +195,8 @@
 </div>
 
 
-</div>
-
 <!-- footer start -->
-<div><jsp:include page="footer.jsp"/></div>
+<%--<div><jsp:include page="footer.jsp"/></div>--%>
 <!-- footer end -->
 
 
