@@ -1,13 +1,12 @@
 package RentGoods;
 
-/**
- * Created by Fantasia on 2017/4/26.
- */
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 
 /**
  * Created by Fantasia on 2017/4/25.
+ *
  */
 public class GoodsDAO {
     private Connection connection;
@@ -75,10 +74,20 @@ public class GoodsDAO {
         return goods;
     }
 
-    //获取图片路径
+    //获取图片路径,数组第一个是封面
     public ArrayList<String> getPictures(String id) throws SQLException {
         ArrayList<String> pictures = new ArrayList<>();
         //sql语句
+
+        String getCover = "select picpath from pictures where id=? and main='1' ";
+        PreparedStatement pstCover =connection.prepareStatement(getCover);
+        pstCover.setString(1,id);
+        ResultSet resultCover=pstCover.executeQuery();
+        resultCover.next();
+        String cover=resultCover.getString("picpath");
+        pictures.add(cover);
+
+
         String getPics = "select picpath from pictures where id=? and main='0' ";
         PreparedStatement pst = connection.prepareStatement(getPics);
         pst.setString(1,id);
@@ -90,7 +99,7 @@ public class GoodsDAO {
     }
 
 
-    //获取特点ID的商品
+    //获取特定ID的商品
     public Goods getGood(String id) throws SQLException {
         //sql语句
     String getInfo="select * from goodsInfo where id=?";
@@ -98,15 +107,24 @@ public class GoodsDAO {
     pstat.setString(1,id);
     ResultSet set = pstat.executeQuery();
     set.next();
+    ArrayList<String> pic=getPictures(id);
     Goods item=new Goods(set.getString("id"),
             set.getString("name"),
             set.getString("type"),
             set.getString("fineness"),
             set.getString("description"),
-            set.getString("owerId"),
-            set.getInt("state")
+            pic,
+            set.getString("ownerId"),
+            set.getDate("dateChanged"),
+            set.getInt("state"),
+            set.getString("borrowerId"),
+            set.getDate("dateReturn"),
+            set.getString("address"),
+            set.getDouble("deposit"),
+            set.getDouble("price"),
+            set.getDouble("originprice")
             );
-    item.setPictures(getPictures(item.getId()));    //设置商品图片路径
+
     return item;
     }
 }

@@ -13,12 +13,12 @@ public class User {
     private String head;
     private int sex;
     private double credit;
-    private String nickName;
+
+    private String nickname;
 
 
-    public User(){}
 
-    public User(String userName,String password){
+    public User(String userName, String password){
         this.userName = userName;
         this.password = password;
         studentID = null;
@@ -28,7 +28,6 @@ public class User {
         head = null;
         sex = 0;
         credit = 0;
-        nickName = userName;
     }
 
     public String getUserName(){
@@ -108,12 +107,16 @@ public class User {
     public void setStudentID(String studentID) {
         this.studentID = studentID;
     }
-
-    public String getNickName() {
-        return nickName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getNickname() {
+
+        return nickname;
     }
 }

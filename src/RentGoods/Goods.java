@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 /**
  * Created by Fantasia on 2017/4/25.
+ * 目前和数据库中的内容相同5月11日21:24
  */
 public class Goods {
     private String Id;
@@ -21,7 +22,66 @@ public class Goods {
     private int state;
     private String borrowerId;
     private Date dateReturn;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public double getDeposit() {
+        return deposit;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getOriginprice() {
+        return originprice;
+    }
+
+    public void setAddress(String address) {
+
+        this.address = address;
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit = deposit;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setOriginprice(double originprice) {
+        this.originprice = originprice;
+    }
+
+    private String address;
+    private double deposit;
+    private double price;
+    private double originprice;
+
+
     public Goods(){}
+
+    //拥有所有参数
+    public Goods(String id, String name, String type, String fineness, String description, ArrayList<String> pictures, String ownerId, Date dateChanged, int state, String borrowerId, Date dateReturn, String address, double deposit, double price, double originprice) {
+        Id = id;
+        this.name = name;
+        this.type = type;
+        this.fineness = fineness;
+        this.description = description;
+        this.pictures = pictures;
+        this.ownerId = ownerId;
+        this.dateChanged = dateChanged;
+        this.state = state;
+        this.borrowerId = borrowerId;
+        this.dateReturn = dateReturn;
+        this.address = address;
+        this.deposit = deposit;
+        this.price = price;
+        this.originprice = originprice;
+    }
 
     public Goods(String id, String name, String type, String fineness, String description, String ownerId, int state) {
         Id = id;
