@@ -98,7 +98,7 @@ public class UserManageServlet extends HttpServlet{
                 user.setTelephone(req.getParameter("telephone"));
                 user.setEmail(req.getParameter("email"));
                 user.setSex(Integer.parseInt(req.getParameter("sex")));
-                user.setNickname(req.getParameter("nickname"));
+                user.setNickName(req.getParameter("nickname"));
                 try {
                     //将信息发往数据库更新
                     dao.changeUserInfo(user);
@@ -208,7 +208,7 @@ public class UserManageServlet extends HttpServlet{
                 try {
                     User chat = dao.getUserChatInfo(who);
                     JSONObject json = new JSONObject();
-                    json.put("nickname",chat.getNickname());
+                    json.put("nickname",chat.getNickName());
                     json.put("head",chat.getHead());
                     PrintWriter writer = resp.getWriter();
                     writer.print(json.toJSONString());

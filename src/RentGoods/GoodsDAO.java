@@ -55,20 +55,36 @@ public class GoodsDAO {
         }
     }
 
-    //获取number个商品的信息，以时间排序
-    public ArrayList<Goods> getGoods(int number) throws SQLException {
+    //获取number个特定type的商品的信息，以时间排序
+    public ArrayList<Goods> getGoodsByType(int number,String type) throws SQLException {
         ArrayList<Goods> goods = new ArrayList<>();
         //sql语句
-        String getinfo = "select name,id from goodsInfo order by dateChanged limit ?";
+        String getinfo = "select * from goodsInfo where type=? order by dateChanged DESC limit ? ";
         PreparedStatement preparedStatement = connection.prepareStatement(getinfo);
         //设定数量
-        preparedStatement.setInt(1,number);
+        preparedStatement.setInt(2,number);
+        preparedStatement.setString(1,type);
         ResultSet set = preparedStatement.executeQuery();   //执行查询
         //添加Goods对象到List
+        //
         while (set.next()){
-            Goods item = new Goods();
-            item.setName(set.getString("name"));
-            item.setPictures(getPictures(set.getString("id"))); //设置商品图片，调用获取图片方法
+            ArrayList<String> pic=getPictures(set.getString("id"));
+            Goods item=new Goods(set.getString("id"),
+                    set.getString("name"),
+                    set.getString("type"),
+                    set.getString("fineness"),
+                    set.getString("description"),
+                    pic,
+                    set.getString("ownerId"),
+                    set.getDate("dateChanged"),
+                    set.getInt("state"),
+                    set.getString("borrowerId"),
+                    set.getDate("dateReturn"),
+                    set.getString("address"),
+                    set.getDouble("deposit"),
+                    set.getDouble("price"),
+                    set.getDouble("originprice")
+            );
             goods.add(item);
         }
         return goods;
@@ -108,7 +124,7 @@ public class GoodsDAO {
     ResultSet set = pstat.executeQuery();
     set.next();
     ArrayList<String> pic=getPictures(id);
-    Goods item=new Goods(set.getString("id"),
+    return new Goods(set.getString("id"),
             set.getString("name"),
             set.getString("type"),
             set.getString("fineness"),
@@ -124,7 +140,5 @@ public class GoodsDAO {
             set.getDouble("price"),
             set.getDouble("originprice")
             );
-
-    return item;
     }
 }

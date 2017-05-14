@@ -13,11 +13,9 @@ public class User {
     private String head;
     private int sex;
     private double credit;
+    private String nickName;
 
-    private String nickname;
-
-    public User() {
-    }
+    public User(){}
 
     public User(String userName, String password){
         this.userName = userName;
@@ -43,11 +41,11 @@ public class User {
         this.password = password;
     }
 
-    public double getCredit() {
+    double getCredit() {
         return credit;
     }
 
-    public void setCredit(double credit) {
+    void setCredit(double credit) {
         this.credit = credit;
     }
 
@@ -60,7 +58,7 @@ public class User {
         return sex;
     }
 
-    public void setSex(int sex) {
+    void setSex(int sex) {
         this.sex = sex;
     }
 
@@ -87,7 +85,7 @@ public class User {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
+    void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
@@ -96,7 +94,7 @@ public class User {
         return school;
     }
 
-    public void setSchool(String school) {
+    void setSchool(String school) {
         this.school = school;
     }
 
@@ -105,18 +103,19 @@ public class User {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    void setStudentID(String studentID) {
         this.studentID = studentID;
     }
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    void setNickName(String nickname) {
+        this.nickName = nickname;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getNickName() {
+
+        return nickName;
     }
 }
