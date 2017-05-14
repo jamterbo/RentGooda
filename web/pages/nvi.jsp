@@ -26,11 +26,12 @@
                             <ul>
                                 <li><a href="/index.jsp">主页</a></li>
                                 <li><a href="shop.html">分类</a></li>
-                                <li><a href="#">发布出租</a></li>
                                 <%
                                     if (user == null){
                                         out.println("<li><a href='/signin'>登录</a></li>");
+                                        out.println("<li><a href='/signin'>注册</a></li>");
                                     }else {
+                                        out.println("<li><a href='/publish'>发布出租</a></li>");
                                         out.println("<li><a href='/PersonalManage'>个人中心</a></li>");
                                     }
                                 %>
@@ -51,7 +52,7 @@
                         <ul>
                             <li>
                                 <div class="cart-img">
-                                    <a href="#"><img src="img/cart/1.jpg" alt=""/></a>
+                                    <a href="#"><img src="/pages/img/cart/1.jpg" alt=""/></a>
                                 </div>
                                 <div class="cart-content">
                                     <h3><a href="#"> 1 X Faded...</a></h3>
@@ -64,7 +65,7 @@
                             </li>
                             <li>
                                 <div class="cart-img">
-                                    <a href="#"><img src="img/cart/1.jpg" alt=""/></a>
+                                    <a href="#"><img src="/pages/img/cart/1.jpg" alt=""/></a>
                                 </div>
                                 <div class="cart-content">
                                     <h3><a href="#"> 1 X Faded...</a></h3>
@@ -97,7 +98,7 @@
                                 <ul>
                                     <li><a href="/PersonalManage">个人中心</a></li>
                                     <li><a href="#">心愿单</a></li>
-                                    <li><a href="#">注销</a></li>
+                                    <li><a href="/logout">注销</a></li>
                                 </ul>
                             </li>
                         </ul>

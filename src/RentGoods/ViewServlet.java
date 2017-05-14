@@ -42,6 +42,9 @@ public class ViewServlet extends HttpServlet{
             case "/getPassChange":
                 req.getRequestDispatcher("/pages/updatePasswordSimple.jsp").forward(req,resp);
                 break;
+            case "/logout":
+                req.getSession().removeAttribute("User");
+                resp.sendRedirect("/");
             default:
                 break;
         }
