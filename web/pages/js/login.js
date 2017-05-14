@@ -15,15 +15,13 @@ var lc=document.getElementById('lc');
 var rcFlag=true;
 var lcFlag=false;
 
-/*
-document.onload = function () {
+$(document).ready(function () {
     rc.style.display="block";
     lc.style.display="none";
     regTop.style.display="block";
     nopw.style.borderBottom="none";
     normal.style.borderBottom="2px solid #ff1877";
-}
-*/
+});
 
 //实现登录方式的切换
 normal.onclick=function(){
@@ -84,7 +82,7 @@ inputUser.onblur=function(){
 				$('#rc-inner-virity').hide();
 				$('#rc-inner-num > span').text('用户名不存在，请重新输入！');
 			}else{
-				$(this).next().show();
+				$('.success').show();
 				nFlag=true;
 			}
 		});
@@ -127,7 +125,6 @@ inputPassword.onfocus=function(){
 
 //按钮验证
 loginBtn.onclick=function(e){
-	stopDefault(e);
 	if(inputUser.value==""){
 		rcInnerNum.style.display="block";
 		rcinnerText.innerText="请输入用户名";
@@ -147,7 +144,7 @@ loginBtn.onclick=function(e){
 		var pass = inputPassword.value;
 		/*console.log(phone);
 		console.log(pass);*/
-		$.post('/login',{userName:user,Password:pass},function(data){
+		$.post('/login',{UserName:user,Password:pass},function(data){
 			if(data=='wrong'){
 				$('#rc-innerError').eq(0).show();
 			}else{
@@ -189,17 +186,21 @@ username.onblur=function(){
     //console.log(value);
     $.post('/checkUser',{username:value},function(data){
         //console.log(data);
-        if(data=='0'){
+        if(data=='true'){
             $('#inner-num').show().text();
             $('#inner-virity').hide();
             $('#inner-num > span').text('用户名已存在，请重新输入！');
         }else{
-            $(this).find('.success').show();
+            $('.success2').show();
             uflage=true;
         }
     });
     return;
 }
+
+username.onfocus = function () {
+    innerNum.style.display="none";
+};
 
 //密码输入框验证
 var pflage=false;
@@ -247,7 +248,7 @@ loginBtn1.onclick=function(){
 		/*console.log(phone);
 		 console.log(pass);*/
         $.post('/register',{username:user,password:pass},function(data){
-            if (data == 'true'){
+            if (data == 'success'){
                 window.location.href='/';
 			}
         });

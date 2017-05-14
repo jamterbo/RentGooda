@@ -16,7 +16,7 @@ a{
 	text-decoration: none;
 }
 .wrap{
-	width:70%;
+	/*width:70%;*/
 	margin:0 auto;
 	overflow:auto;/*margin嵌套问题*/
 }
@@ -52,7 +52,7 @@ a{
 }
 .register-wrap .pic{
 	width:40%;
-	padding: 20px 0 0 40px;
+	padding: 0 0 0 0;
 	float:left;
 	display:inline-block;
 }
@@ -170,7 +170,7 @@ a{
 	float:left;
 	line-height:26px;
 }
-.register-con ul #inner-num>span,#inner-virity>span{
+.register-con ul #inner-num>span,#inner-virity>spanspan{
 	color:#ff1877;
 	display:inline-block;
 	float:left;
@@ -298,10 +298,10 @@ a{
 
 */
 /*=========手机号码无密码登录==========*/
+/*
 .register-wrap .register .login-con{
 	padding: 0 0 30px 38px;
 	display:none;
-	/*切换到其他登录方式时，隐藏*/
 }
 .login-con:after{
 	content:'';
@@ -353,7 +353,6 @@ a{
 	color: #333;
 	font-size: 14px;
 	padding: 4px 35px 4px 10px; 
-	 /*将默认的select选择框样式清除*/
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	-o-appearance: none;
@@ -361,7 +360,7 @@ a{
 	appearance: none;
 
 	background:url('../images/arrow_29x30.png') no-repeat scroll right center #fff;
-	vertical-align: top;/*处理li中的元素错位问题*/
+	vertical-align: top;/*处理li中的元素错位问题*
 	width:104px\0;
 	background:none\0;
 	padding: 4px 6px 4px 6px\0;
@@ -408,7 +407,7 @@ a{
 	height:18px\0;
 	width:104px\0;
 	line-height:18px\0;
-	margin-left:-45px\0;/*IE8-11的兼容性*/
+	margin-left:-45px\0;/*IE8-11的兼容性*
 	line-height:14px;
 	display:inline-block;
 	margin-right:10px;
@@ -467,12 +466,13 @@ a{
 	background:url(../images/sprite_200x300.png) no-repeat 0 -160px;
 }
 /*=========扫码登录==============*/
+/*
 .saoma{
-   /*  height: 380px; */
+   /*  height: 380px; *
     width: 350px;
   	padding:0 0 30px 40px;
   	display:none;
-  	/*该登录方式下，只有点击右上角图标才能切换到其他登录方式*/
+  	/*该登录方式下，只有点击右上角图标才能切换到其他登录方式*
 }
 .saoma>div{
 	border:none;
@@ -524,6 +524,7 @@ a{
 }
 
 /*========footer部分样式开始==========*/
+/*
 .footer{
 	width:100%;
 	background:url(../images/fbg_16x16.png) repeat 0 0;
@@ -538,7 +539,7 @@ a{
 	margin-bottom:30px;
 }
 .footer-wrap-top:after{
-	/*内容没有撑开盒子的处理方法*/
+	/*内容没有撑开盒子的处理方法*
 	content:'';
 	display:block;
 	clear:both;

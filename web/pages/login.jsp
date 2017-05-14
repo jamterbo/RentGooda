@@ -23,16 +23,16 @@
     <!-- This core.css file contents all plugings css file. -->
     <link rel="stylesheet" href="../pages/css/core.css">
     <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">
+    <%--<link rel="stylesheet" href="../pages/css/shortcode/shortcodes.css">--%>
     <!-- Theme main style -->
-    <link rel="stylesheet" href="../pages/css/style.css">
+    <%--<link rel="stylesheet" href="../pages/css/style.css">--%>
     <!-- Responsive css -->
-    <link rel="stylesheet" href="../pages/css/responsive.css">
+    <%--<link rel="stylesheet" href="../pages/css/responsive.css">--%>
     <!-- User style -->
-    <link rel="stylesheet" href="../pages/css/custom.css">
+    <%--<link rel="stylesheet" href="../pages/css/custom.css">--%>
 
     <!-- Modernizr JS -->
-    <script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>
+    <%--<script src="../pages/js/vendor/modernizr-2.8.3.min.js"></script>--%>
     <!-- Bootstrap core CSS -->
     <link href="../pages/css/bootstrap.min.css" rel="stylesheet">
 
@@ -42,12 +42,13 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <%--<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>--%>
+    <!--<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
     <![endif]-->
 
 
 </head>
+<div class="container">
 <%--
 <!-- header start -->
 <header class="header-pos blg">
@@ -174,7 +175,7 @@
                         <br>
                         <li class="password form-group">
                             <input type="text"name="username"class="form-control" id="register_username" placeholder="用户名"/>
-                            <span class="fa fa-check success" style="display:none;color:green;position:relative;left:-25px;top:5px;"></span>
+                            <span class="fa fa-check success2" style="display:none;color:green;position:relative;left:-25px;top:5px;"></span>
                         </li>
                         <br>
                         <li class="password form-group">
@@ -199,21 +200,20 @@
 <%--<div><jsp:include page="footer.jsp"/></div>--%>
 <!-- footer end -->
 
-
-<script src="../pages/js/login.js"></script>
 <!-- jquery latest version -->
 <script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
 <!-- Bootstrap framework js -->
 <script src="../pages/js/bootstrap.min.js"></script>
 <!-- owl.carousel js -->
-<script src="../pages/js/owl.carousel.min.js"></script>
+<%--<script src="../pages/js/owl.carousel.min.js"></script>--%>
 <!-- owl.carousel js -->
-<script src="../pages/js/jquery-ui.min.js"></script>
+<%--<script src="../pages/js/jquery-ui.min.js"></script>--%>
 <!-- jquery.nivo.slider js -->
-<script src="../pages/js/jquery.nivo.slider.pack.js"></script>
+<%--<script src="../pages/js/jquery.nivo.slider.pack.js"></script>--%>
 <!-- All js plugins included in this file. -->
-<script src="../pages/js/plugins.js"></script>
+<%--<script src="../pages/js/plugins.js"></script>--%>
 <!-- Main js file that contents all jQuery plugins activation. -->
-<script src="../pages/js/main.js"></script>
+<%--<script src="../pages/js/main.js"></script>--%>
+<script src="../pages/js/login.js"></script>
 </body>
 </html>
