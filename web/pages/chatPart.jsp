@@ -13,6 +13,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" type="text/css" href="../pages/css/styles.css">
 <script type="application/javascript" src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
+<div class="chatBackground"></div>
 <div class="chatPart">
     <div class="chatPart_close">
         <img src="../pages/img/icons/close.ico" height="20px">
@@ -57,7 +58,8 @@
 </div>
 </div>
 <div class="chat_icon">
-    <img src="../pages/img/icons/chat.png" height="30px">
+    <%--<img src="../pages/img/icons/chat.png" height="30px">--%>
+    <i class="pe-7s-chat"></i>
 </div>
 <script type="application/javascript">
     var chat = {};
@@ -67,6 +69,7 @@
     chat.name = <%=user==null?null:"'"+user.getUserName()+"'"%>;
     chat.chatWith = null;
     $(document).ready(function () {
+        $('.chatBackground').hide();
         $('.chatPart').hide();
         $('.chat').hide();
         if (true){
@@ -176,10 +179,12 @@
 
     };
     $('.chat_icon').click(function () {
+        $('.chatBackground').show();
         $('.chatPart').show();
         $('.chat_icon').hide();
     });
     $('.chatPart_close').click(function () {
+        $('.chatBackground').hide();
         $('.chatPart').hide();
         $('.chat_icon').show();
     });

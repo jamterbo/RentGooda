@@ -99,9 +99,10 @@ public class GoodsDAO {
         PreparedStatement pstCover =connection.prepareStatement(getCover);
         pstCover.setString(1,id);
         ResultSet resultCover=pstCover.executeQuery();
-        resultCover.next();
-        String cover=resultCover.getString("picpath");
-        pictures.add(cover);
+        if (resultCover.next()){
+            String cover=resultCover.getString("picpath");
+            pictures.add(cover);
+        }
 
 
         String getPics = "select picpath from pictures where id=? and main='0' ";
@@ -140,5 +141,73 @@ public class GoodsDAO {
             set.getDouble("price"),
             set.getDouble("originprice")
             );
+    }
+
+    //获取借出物品信息
+    public ArrayList<Goods> getGoodsByLender(String username) throws SQLException{
+        ArrayList<Goods> goods = new ArrayList<>();
+        String select = "SELECT id,name,deposit,price,dateChanged,state FROM goodsInfo WHERE ownerId=?";
+        PreparedStatement pstat = connection.prepareStatement(select);
+        pstat.setString(1,username);
+        ResultSet set = pstat.executeQuery();
+        while (set.next()){
+            ArrayList<User> applye = new ArrayList<>();
+            Goods temp = new Goods();
+            String id = set.getString("id");
+            ArrayList<String> pics = getPictures(id);
+            String name = set.getString("name");
+            double deposit = set.getDouble("deposit");
+            double price = set.getDouble("price");
+            int state = set.getInt("state");
+            Date dateChanged = set.getDate("dateChanged");
+            select = "SELECT applyInfo.borrower,userinfo.nickname from applyInfo,userinfo WHERE goodsId=? AND applyInfo.borrower=userinfo.userName";
+            pstat = connection.prepareStatement(select);
+            pstat.setString(1,id);
+            ResultSet borrowers = pstat.executeQuery();
+            while (borrowers.next()){
+                User user = new User();
+                user.setUserName(borrowers.getString("borrower"));
+                user.setNickName(borrowers.getString("nickname"));
+                applye.add(user);
+            }
+            temp.setId(id);
+            temp.setName(name);
+            temp.setDeposit(deposit);
+            temp.setPrice(price);
+            temp.setState(state);
+            temp.setDateChanged(dateChanged);
+            temp.setApplyer(applye);
+            temp.setPictures(pics);
+            goods.add(temp);
+        }
+        return goods;
+    }
+
+    //获得借入商品信息
+    public ArrayList<Goods> getGoodsByBorrower(String username) throws SQLException{
+        ArrayList<Goods> items = new ArrayList<>();
+        String select = "SELECT id,name,dateChanged,state,price,deposit FROM goodsInfo WHERE borrowerId=?";
+        PreparedStatement pstat = connection.prepareStatement(select);
+        pstat.setString(1,username);
+        ResultSet set = pstat.executeQuery();
+        while (set.next()){
+            Goods temp = new Goods();
+            String id = set.getString("id");
+            ArrayList<String> pics = getPictures(id);
+            String name = set.getString("name");
+            Date dateChanged = set.getDate("dateChanged");
+            int state = set.getInt("state");
+            double price = set.getDouble("price");
+            double deposit = set.getDouble("deposit");
+            temp.setId(id);
+            temp.setPictures(pics);
+            temp.setName(name);
+            temp.setDateChanged(dateChanged);
+            temp.setState(state);
+            temp.setPrice(price);
+            temp.setDeposit(deposit);
+            items.add(temp);
+        }
+        return items;
     }
 }

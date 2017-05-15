@@ -48,6 +48,7 @@
 </head>
 
 <body>
+<div class="container">
 <!--header start--!>
 <div><jsp:include page="nvi.jsp"/></div>
 <!--header end--!>
@@ -221,10 +222,12 @@
 </div>
 <!-- pro-info-area end -->
 
+<jsp:include page="/pages/chatPart.jsp"></jsp:include>
 
 <!-- footer start -->
 <div>
     <jsp:include page="footer.jsp"/>
+</div>
 </div>
 <!-- footer end -->
 <!-- jquery latest version -->

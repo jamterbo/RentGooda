@@ -125,5 +125,34 @@ public class GoodsManageServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
+        //获取我的出租商品信息
+        if (method.equals("/MyItems")){
+            User user = (User) req.getSession().getAttribute("User");
+            try {
+                ArrayList<Goods> items = goodsDAO.getGoodsByLender(user.getUserName());
+                req.setAttribute("items",items);
+                req.getRequestDispatcher("/pages/test.jsp").forward(req,resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (method.equals("/Myborrow")){
+            User user = (User)req.getSession().getAttribute("User");
+            try {
+                ArrayList<Goods> items = goodsDAO.getGoodsByBorrower(user.getUserName());
+                req.setAttribute("borrow",items);
+                req.getRequestDispatcher("/pages/test.jsp").forward(req,resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            goodsDAO.closeConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
