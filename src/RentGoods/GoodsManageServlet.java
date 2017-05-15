@@ -132,7 +132,7 @@ public class GoodsManageServlet extends HttpServlet {
             try {
                 ArrayList<Goods> items = goodsDAO.getGoodsByLender(user.getUserName());
                 req.setAttribute("items",items);
-                req.getRequestDispatcher("/pages/test.jsp").forward(req,resp);
+                req.getRequestDispatcher("/pages/outGoods.jsp").forward(req,resp);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
