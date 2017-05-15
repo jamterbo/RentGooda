@@ -38,7 +38,9 @@
         <url-pattern>/showItem</url-pattern>
         <url-pattern>/MyItems</url-pattern>
         <url-pattern>/Myborrow</url-pattern>
-
+        <url-pattern>/changeGoodsState</url-pattern>
+        <url-pattern>/deleteGoods</url-pattern>
+        <url-pattern>/applylent</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>UserManage</servlet-name>

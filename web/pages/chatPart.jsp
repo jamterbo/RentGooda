@@ -100,9 +100,9 @@
                             var contact = document.getElementById(i);
                             if (contact == null){
                                 updateContact(i);
-                            }else {
-                                document.getElementById(i).querySelector(".contact__status").className = 'contact__status online';
                             }
+                            document.getElementById(i).querySelector(".contact__status").className = 'contact__status online';
+                            $('.chat_icon').css('background-color','#2fa0ec');
                         }
                     }
                     chat.ready = true;
@@ -142,7 +142,10 @@
         }else {
 
         }
-        function updateContact(who) {
+
+
+    });
+    function updateContact(who) {
             var xmlhttp;
             if(window.XMLHttpRequest){
                 xmlhttp = new XMLHttpRequest();
@@ -159,8 +162,6 @@
             xmlhttp.open("GET","/getUserChatInfo?who="+who,true);
             xmlhttp.send();
         }
-
-    });
     $('.chat__back').click(function () {
                 $('.chat').hide();
                 chat.chatWith = null;
@@ -182,6 +183,7 @@
         $('.chatBackground').show();
         $('.chatPart').show();
         $('.chat_icon').hide();
+        $('.chat_icon').css('background-color','#ffae00');
     });
     $('.chatPart_close').click(function () {
         $('.chatBackground').hide();
@@ -200,5 +202,14 @@
         })
 
     };
+    function chatWith(id) {
+        var content = document.getElementById(id);
+        if (content == null){
+            updateContact(id);
+        }
+        $('.chatBackground').show();
+        $('.chatPart').show();
+        $('.chat_icon').hide();
+    }
 </script>
 

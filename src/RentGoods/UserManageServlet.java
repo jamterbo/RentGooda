@@ -170,6 +170,8 @@ public class UserManageServlet extends HttpServlet{
     //处理GET方法
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         //获取数据库连接
         String DB_URL = getServletContext().getInitParameter("DB_URL");
         String root = getServletContext().getInitParameter("username");

@@ -146,7 +146,7 @@ public class GoodsDAO {
     //获取借出物品信息
     public ArrayList<Goods> getGoodsByLender(String username) throws SQLException{
         ArrayList<Goods> goods = new ArrayList<>();
-        String select = "SELECT id,name,deposit,price,dateChanged,state FROM goodsInfo WHERE ownerId=?";
+        String select = "SELECT id,name,deposit,price,dateChanged,state,borrowerId FROM goodsInfo WHERE ownerId=?";
         PreparedStatement pstat = connection.prepareStatement(select);
         pstat.setString(1,username);
         ResultSet set = pstat.executeQuery();
@@ -160,6 +160,7 @@ public class GoodsDAO {
             double price = set.getDouble("price");
             int state = set.getInt("state");
             Date dateChanged = set.getDate("dateChanged");
+            String borrowerId = set.getString("borrowerId");
             select = "SELECT applyInfo.borrower,userinfo.nickname from applyInfo,userinfo WHERE goodsId=? AND applyInfo.borrower=userinfo.userName";
             pstat = connection.prepareStatement(select);
             pstat.setString(1,id);
@@ -178,6 +179,7 @@ public class GoodsDAO {
             temp.setDateChanged(dateChanged);
             temp.setApplyer(applye);
             temp.setPictures(pics);
+            temp.setBorrowerId(borrowerId);
             goods.add(temp);
         }
         return goods;
@@ -210,4 +212,67 @@ public class GoodsDAO {
         }
         return items;
     }
+
+    //修改物品状态
+    public void setGoodsState(Goods goods) throws SQLException{
+        String update = null;
+        int state = goods.getState();
+        String id = goods.getId();
+        if (state == 1){
+            cleanApply(id);
+            String borrower = goods.getBorrowerId();
+            update = "UPDATE goodsInfo SET state=?,borrowerId=? WHERE id=?";
+            PreparedStatement pstat = connection.prepareStatement(update);
+            pstat.setInt(1,state);
+            pstat.setString(2,borrower);
+            pstat.setString(3,id);
+            pstat.executeUpdate();
+        }else if(state == 2){
+            update = "UPDATE goodsInfo SET state=?,dateReturn=now() WHERE id=?";
+            PreparedStatement pstat = connection.prepareStatement(update);
+            pstat.setInt(1,state);
+            pstat.setString(2,id);
+            pstat.executeUpdate();
+        }
+    }
+
+    //清除物品申请表
+    public void cleanApply(String goodsId) throws SQLException{
+        String delete = "DELETE FROM applyInfo WHERE goodsId=?";
+        PreparedStatement pstat = connection.prepareStatement(delete);
+        pstat.setString(1,goodsId);
+        pstat.executeUpdate();
+    }
+
+    //清除物品图片
+    public void cleanPictures(String goodsId) throws SQLException{
+        String delete = "DELETE FROM pictures WHERE id=?";
+        PreparedStatement pstat = connection.prepareStatement(delete);
+        pstat.setString(1,goodsId);
+        pstat.executeUpdate();
+    }
+
+    //清除某项物品
+    public void cleanGoods(String goodsId) throws SQLException{
+        cleanPictures(goodsId);
+        cleanApply(goodsId);
+        String delete = "DELETE FROM goodsInfo WHERE id=?";
+        PreparedStatement pstat = connection.prepareStatement(delete);
+        pstat.setString(1,goodsId);
+        pstat.executeUpdate();
+    }
+
+    //添加申请
+    public void addApply(Goods item) throws SQLException{
+        String add = "INSERT INTO applyInfo(lender, goodsId, borrower) VALUES (?,?,?)";
+        PreparedStatement pstat = connection.prepareStatement(add);
+        String lender = item.getOwnerId();
+        String goodsId = item.getId();
+        String borrower = item.getBorrowerId();
+        pstat.setString(1,lender);
+        pstat.setString(2,goodsId);
+        pstat.setString(3,borrower);
+        pstat.executeUpdate();
+    }
+
 }

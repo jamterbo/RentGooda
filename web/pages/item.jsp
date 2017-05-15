@@ -106,7 +106,7 @@
             </div>
             <!--商品信息 -->
             <div class="col-xs-12 col-sm-6 col-md-7">
-                <div class="product-details">
+                <div class="product-details" >
                     <h2 class="pro-d-title"><%=item.getName()%>
                     </h2>
                     <div class="pro-ref container">
@@ -164,8 +164,8 @@
                     </div>
 
                     <br/>
-                    <button type="button" class="btn btn-default">去租</button>
-                    <button type="button" class="btn btn-default">联系主人</button>
+                    <button type="button" class="btn btn-default" onclick="wantLent('<%=item.getId()%>','<%=item.getOwnerId()%>')">去租</button>
+                    <button type="button" class="btn btn-default" onclick="chatWith('<%=item.getOwnerId()%>')">联系主人</button>
 
                 </div>
             </div>
@@ -230,6 +230,22 @@
 </div>
 </div>
 <!-- footer end -->
+<script type="text/javascript">
+    function wantLent(goodsId,ownerId) {
+        $.ajax({
+            url:"/applylent",
+            method:'POST',
+            data:{
+                goodsId:goodsId,
+                ownerId:ownerId
+            }
+        }).done(function () {
+            alert('success');
+        }).fail(function () {
+            alert('fail');
+        });
+    };
+</script>
 <!-- jquery latest version -->
 <script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
 <!-- Bootstrap framework js -->

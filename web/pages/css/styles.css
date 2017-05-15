@@ -231,7 +231,8 @@ button, input {
   cursor: pointer;
   height: 40px;
   width: 40px;
-  background: #ffae00 none repeat scroll 0 0;
+  background:  none repeat scroll 0 0;
+  background-color: #ffae00;
 }
 .chat_icon i{
   width: 40px;
