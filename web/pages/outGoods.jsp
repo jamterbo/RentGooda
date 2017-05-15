@@ -84,7 +84,6 @@ Created by IntelliJ IDEA.
                 <%}%>
                 </select >
                 <button type="button" class="btn btn-primary"  style="margin-top: 33px" onclick="lent('<%=item.getId()%>')">出租</button>
-                <button type="button" class="btn btn-primary" style="margin-top: 33px" onclick="deleteGoods('<%=item.getId()%>')">删除</button>
                 <%
                     break;
                     case 1:
@@ -95,7 +94,6 @@ Created by IntelliJ IDEA.
                     break;
                     case 2:
                 %>
-                <button type="button" class="btn btn-primary" style="margin-top: 33px" onclick="deleteGoods('<%=item.getId()%>')">删除</button>
                 <%}%>
             </div>
         </div>
