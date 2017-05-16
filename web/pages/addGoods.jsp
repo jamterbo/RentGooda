@@ -17,6 +17,7 @@
     <!-- favicon
     ============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <script src="../pages/js/vendor/jquery-1.12.0.min.js"></script>
 
     <!-- All css files are included here. -->
     <!-- Bootstrap framework main css -->
@@ -31,6 +32,7 @@
     <link rel="stylesheet" href="../pages/css/responsive.css">
     <!-- User style -->
     <link rel="stylesheet" href="../pages/css/custom.css">
+    <link href="../pages/css/upload.css" rel="stylesheet">
 
     <!-- Modernizr JS -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -97,8 +99,7 @@
                 <td><textarea name="description" id="area"></textarea></td>
             </tr>
             <tr>
-                <td>图片上传：</td>
-                <td><input type="file" name="photo" style="border-radius: 10px;text-align: center"></td>
+                <td>图片上传：</td><td><input type="image" neme="photo" class="content"></td>>
             </tr>
             <tr>
                 <td>地址：</td>
@@ -119,7 +120,8 @@
 
     </form>
 </div>
-<script type="text/javascript" src="../pages/js/T_upload.js">
+<script src="../pages/js/T_upload.js"></script>
+<script type="text/javascript">
     $(function() {
 //			var md = "product";
 //			var pid = "asdasdasdasdasd";
