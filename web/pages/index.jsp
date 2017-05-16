@@ -52,7 +52,7 @@
 <div class="slider-container">
     <!-- Slider Image 首页轮播图-->
     <div id="mainSlider" class="nivoSlider slider-image">
-        <img src="../pages/img/slider/1.jpg" alt="" title="#htmlcaption1"></div>
+        <img src="../pages/img/slider/1111.jpg" alt="" title="#htmlcaption1"></div>
     <!-- Slider Caption 第一个轮播图 -->
     <div id="htmlcaption1" class="nivo-html-caption slider-caption-1">
         <div class="container">
