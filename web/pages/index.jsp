@@ -58,15 +58,14 @@
         <div class="container">
             <div class="slide1-text">
                 <div class="middle-text">
-                    <div class="cap-dec cap-1 wow bounceInRight" data-wow-duration="0.9s" data-wow-delay="0s">
-                        <h2>A BRAND</h2>
+                    <div class="cap-dec cap-1 wow bounceInRight" data-wow-duration="0.9s" data-wow-delay="0s"  style="color:#fff9f2">
+                        <h2>熙物</h2>
                     </div>
-                    <div class="cap-dec cap-2 wow bounceInRight" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                        <h2>NEW ARRIVALS</h2>
+                    <div class="cap-dec cap-2 wow bounceInRight" data-wow-duration="1.2s" data-wow-delay="0.2s"   style="color:#fff9f2">
+                        <h2>商品来自东北大学</h2>
                     </div>
-                    <div class="cap-text wow bounceInRight" data-wow-duration="1.2s" data-wow-delay="0.3s">
-                        Fascinating outdoor lounge chair with wooden chairs for outdoor ideas with outdoor chaise lounge
-                        chair.
+                    <div class="cap-text wow bounceInRight" data-wow-duration="1.2s" data-wow-delay="0.3s"  style="color:#fffbf2">
+                        按天出租电脑。
                     </div>
                     <div class="cap-readmore wow bounceInUp" data-wow-duration="1.3s" data-wow-delay=".5s">
                         <a href="#">Shopping</a>
